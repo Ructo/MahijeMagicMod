@@ -1,0 +1,13 @@
+{
+  "${ModID}:ModdedCharacter": {
+    "NAMES": [
+      "The Hyper",
+      "the Hyper"
+    ],
+    "TEXT": [
+      "The Hyper can't sit still and must burn through their resources in order to get stronger.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  }
+}

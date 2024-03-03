@@ -1,0 +1,16 @@
+{
+  "${ModID}:Hyperactivity": {
+    "NAME": "Hyperactivity",
+    "FLAVOR": "Every 3 cards exhausted, gain 1 energy",
+    "DESCRIPTIONS": [
+      "Every 3 cards exhausted, gain 1 energy"
+    ]
+  },
+  "${ModID}:StruggleBus": {
+    "NAME": "Struggle Bus",
+    "FLAVOR": "Stronger Struggles, Most Exhausting, Keep swinging!",
+    "DESCRIPTIONS": [
+      "Stronger Struggles, Keep swinging, then Flail!"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "${ModID}:ExampleTwoAmountPower": {
+    "NAME": "Example 2",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength and #b",
+      " #yDexterity."
+    ]
+  },
+  "${ModID}:StrFixation": {
+    "NAME": "Strength Fixation",
+    "DESCRIPTIONS": [
+      "You're focused on offense, all future dexterity becomes strength for #b",
+      " turns"
+    ]
+  },
+  "${ModID}:DexFixation": {
+    "NAME": "Dexterity Fixation",
+    "DESCRIPTIONS": [
+      "You're focused on defense, all future strength becomes dexterity for #b",
+      " turns"
+    ]
+  },
+
+  "{ModID}:ScalingVigorPower": {
+    "NAME": "Scaling Vigor",
+    "DESCRIPTIONS": [
+      "The first Attack each turn gains #b",
+      "+2 Vigor. Each subsequent Attack gains #b",
+      "+2 additional Vigor than the previous one this turn."
+    ]
+  },
+  "{ModID}:ScalingBlockPower": {
+    "NAME": "Scaling Block",
+    "DESCRIPTIONS": [
+      "The first Skill each turn grants #b",
+      "+2 Block. Each subsequent Skill grants #b",
+      "+2 additional Block than the previous one this turn."
+    ]
+  },
+  "{ModID}:SupertasterPower": {
+    "NAME": "Supertaster",
+    "DESCRIPTIONS": [
+      "The first buff and debuff each turn is increased by #b"
+    ]
+  }
+}
+
