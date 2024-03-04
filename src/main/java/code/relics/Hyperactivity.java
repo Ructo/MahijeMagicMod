@@ -1,10 +1,7 @@
 package code.relics;
 
 import code.CharacterFile;
-import code.cards.Concentration;
-import code.cards.RacingThoughts;
 import code.cards.Struggle;
-import code.cards.democards.complex.CreativeMind;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;

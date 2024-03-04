@@ -6,5 +6,21 @@
       "todos"
     ],
     "DESCRIPTION": "TODO: Make your own epic keywords"
+  },
+  {
+  "PROPER_NAME": "Swappable",
+  "NAMES": [
+  "swappable",
+    "Swappable"
+],
+  "DESCRIPTION": "#yRight #yClick to swap the effect of this card."
+  },
+  {
+    "PROPER_NAME": "Angry",
+    "NAMES": [
+      "Angry",
+      "angry"
+    ],
+    "DESCRIPTION": "Curses and Attacks are Angry"
   }
 ]

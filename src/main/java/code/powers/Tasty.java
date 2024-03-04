@@ -9,16 +9,15 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerP
 
 import static code.ModFile.makeID;
 
-public class SupertasterPower extends AbstractEasyPower implements BetterOnApplyPowerPower {
-    public static final String POWER_ID = makeID("SupertasterPower");
+public class Tasty extends AbstractEasyPower implements BetterOnApplyPowerPower {
+    public static final String POWER_ID = makeID("Tasty");
     public static final String NAME = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).NAME;
     public static final String[] DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).DESCRIPTIONS;
     private boolean hasModifiedBuffThisTurn = false;
     private boolean hasModifiedDebuffThisTurn = false;
 
-    public SupertasterPower(AbstractCreature owner, int amount) {
+    public Tasty(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        updateDescription();
     }
 
     @Override
@@ -59,7 +58,11 @@ public class SupertasterPower extends AbstractEasyPower implements BetterOnApply
 
     @Override
     public void updateDescription() {
-        description = CardCrawlGame.languagePack.getPowerStrings(ID).DESCRIPTIONS[0];
+        if (hasModifiedBuffThisTurn && hasModifiedDebuffThisTurn) {
+            description = DESCRIPTIONS[1]; // Assuming DESCRIPTIONS[1] explains both buffs and debuffs have been modified.
+        } else {
+            description = DESCRIPTIONS[0];
+        }
     }
 
 }

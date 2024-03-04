@@ -1,16 +1,16 @@
 {
   "${ModID}:Hyperactivity": {
     "NAME": "Hyperactivity",
-    "FLAVOR": "Every 3 cards exhausted, gain 1 energy",
+    "FLAVOR": "Every 3 cards exhausted, gain 1 energy. Gain 3 Struggles when out of cards to play",
     "DESCRIPTIONS": [
-      "Every 3 cards exhausted, gain 1 energy"
+      "Every 3 cards exhausted, gain 1 energy. Gain 3 Struggles when out of cards to play"
     ]
   },
   "${ModID}:StruggleBus": {
     "NAME": "Struggle Bus",
     "FLAVOR": "Stronger Struggles, Most Exhausting, Keep swinging!",
     "DESCRIPTIONS": [
-      "Stronger Struggles, Keep swinging, then Flail!"
+      "Stronger Struggles, Keep swinging, then Flail! Exhaust 3 cards for a Flail"
     ]
   }
 }

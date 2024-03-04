@@ -1,4 +1,4 @@
-package code.cards.democards.complex;
+package code.cards;
 
 import basemod.cardmods.EtherealMod;
 import basemod.cardmods.ExhaustMod;
@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.cards.AbstractEasyCard;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,7 +17,7 @@ import static code.util.Wiz.*;
 
 public class CreativeMind extends AbstractEasyCard {
 
-    public final static String ID = makeID(CreativeMind.class.getSimpleName());
+    public final static String ID = makeID("CreativeMind");
     // intellij stuff skill, self, uncommon
 
     public CreativeMind() {

@@ -1,6 +1,7 @@
 package code.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
+import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -20,9 +21,6 @@ import static code.ModFile.makeID;
 
 public class HyperStrike extends AbstractEasyCard {
     public final static String ID = makeID("HyperStrike");
-    private static final int USES_UNTIL_EXHAUST = 2;
-
-    private int usesRemaining = USES_UNTIL_EXHAUST;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public HyperStrike() {
@@ -30,24 +28,17 @@ public class HyperStrike extends AbstractEasyCard {
         baseDamage = 8;
         baseMagicNumber = magicNumber = 1;
         tags.add(CardTags.STRIKE);
-        baseSecondMagic = secondMagic = USES_UNTIL_EXHAUST;
         initializeDescription();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         addToBot(new DrawCardAction(p, magicNumber));
-        usesRemaining--;
-        if (usesRemaining <= 0) {
-            this.exhaust = true; // The card will now exhaust when used
-            this.usesRemaining = USES_UNTIL_EXHAUST; // Reset the counter if you want the effect to apply every time the card is obtained
-        }
     }
 
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+        upgradeDamage(4);
         this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

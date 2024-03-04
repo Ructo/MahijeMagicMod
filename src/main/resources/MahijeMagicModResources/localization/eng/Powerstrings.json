@@ -38,10 +38,10 @@
       "+2 additional Block than the previous one this turn."
     ]
   },
-  "{ModID}:SupertasterPower": {
-    "NAME": "Supertaster",
+  "{ModID}:Tasty": {
+    "NAME": "Tasty",
     "DESCRIPTIONS": [
-      "The first buff and debuff each turn is increased by #b"
+      "The first buff and debuff each turn is increased by 1"
     ]
   }
 }

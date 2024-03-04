@@ -1,15 +1,15 @@
 {
   "${ModID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. Exhaustive: !M!"
+    "DESCRIPTION": "Deal !D! damage. NL Exhaustive: !stslib:ex"
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block. Exhaustive: !M!"
+    "DESCRIPTION": "Gain !B! Block. NL Exhaustive: !stslib:ex"
   },
   "${ModID}:Alert": {
     "NAME": "Alert",
-    "DESCRIPTION": "Gain !B! Block twice Exhaustive: !M!"
+    "DESCRIPTION": "Gain !B! Block twice. NL Exhaustive: !stslib:ex"
   },
   "${ModID}:Struggle": {
     "NAME": "Struggle",
@@ -110,12 +110,13 @@
   },
   "${ModID}:RacingThoughts": {
     "NAME": "Racing Thoughts",
-    "DESCRIPTION": "Draw 2 cards NL Find a random third card. Exhaustive: !M!"
+    "DESCRIPTION": "Draw !M! cards NL Find a random third card. Exhaustive: !stslib:ex!"
   },
   "${ModID}:HyperKick": {
     "NAME": "Hyper Kick",
-    "DESCRIPTION": "Hyperrr Kick! Deal !D! damage twice NL Exhaust a card",
-    "UPGRADE_DESCRIPTION": "Hyperrr Kick! Deal !D! damage twice NL Exhaust a card"
+    "DESCRIPTION": "Deal !D! damage 2 times NL Exhaust a card",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times NL Exhaust a card",
+    "Flavor": "Hyperrr Kick!"
   },
   "${ModID}:ZeroPointOverdrive": {
     "NAME": "Zero Point Overdrive",
@@ -123,7 +124,7 @@
   },
   "${ModID}:Multitask": {
     "NAME": "Multitask",
-    "DESCRIPTION": "Play the top card of your draw pile and the top card of your discard pile. Exhaust"
+    "DESCRIPTION": "Play the top card of your draw pile and the top card of your discard pile. NL Exhaust"
   },
   "${ModID}:Adderall": {
     "NAME": "Adderall",
@@ -132,7 +133,42 @@
   },
   "${ModID}:Supertaster": {
     "NAME": "Supertaster",
-    "DESCRIPTION": "Apply !M! Scaling Vigor and !M! Scaling Block. NL Each subsequent Attack this turn gains +2 additional Vigor, and each Skill gains +2 additional Block."
+    "DESCRIPTION": "The first buff and debuff on you each turn is increased by 1"
+  },
+  "${ModID}:TemperanceSpiteful": {
+    "NAME": "Temperance",
+    "DESCRIPTION": "Swappable NL Exhaust all skills in hand NL Apply Strength and Attack All Thrice for !D! per Exhausted NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all skills in hand NL Apply Strength and Attack All Thrice for !D! per Exhausted"
+  },
+  "${ModID}:TemperancePatient": {
+    "NAME": "Temperance",
+    "DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand NL Apply Dexterity and Block Thrice for !B! per Exhausted NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand NL Apply Dexterity and Block Thrice for !B! per Exhausted"
+  },
+  "${ModID}:ReroutingBlock": {
+    "NAME": "Rerouting:Block",
+    "DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat NL Discard 1 attack card at random",
+    "UPGRADE_DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat NL Discard 1 attack card at random"
+  },
+  "${ModID}:ReroutingAttack": {
+    "NAME": "Rerouting:Attack",
+    "DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat NL Discard 1 skill card at random",
+    "UPGRADE_DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat NL Discard 1 skill card at random"
+  },
+    "${ModID}:Ping": {
+      "NAME": "Ping",
+      "DESCRIPTION": "Draw 1 card per enemy NL Exhaustive: !stslib:ex!",
+      "UPGRADE_DESCRIPTION": "Draw 1 card and gain 3 Vigor per enemy NL Exhaustive: !stslib:ex!"
+    },
+  "${ModID}:Traceroute": {
+    "NAME": "Traceroute",
+    "DESCRIPTION": "Return a card from your exhaust pile to your hand",
+    "UPGRADE_DESCRIPTION": "Return a card from your exhaust pile to your hand"
+  },
+  "${ModID}:Exploit": {
+    "NAME": "Exploit",
+    "DESCRIPTION": "Apply 2 Weak NL Apply 1 Slow NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Apply 2 Vulnerable NL Apply 2 Weak NL Apply 1 Slow NL Exhaust"
   }
 }
 
