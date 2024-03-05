@@ -9,14 +9,14 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerP
 
 import static code.ModFile.makeID;
 
-public class Tasty extends AbstractEasyPower implements BetterOnApplyPowerPower {
-    public static final String POWER_ID = makeID("Tasty");
+public class SupertasterPower extends AbstractEasyPower implements BetterOnApplyPowerPower {
+    public static final String POWER_ID = makeID("SupertasterPower");
     public static final String NAME = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).NAME;
     public static final String[] DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).DESCRIPTIONS;
     private boolean hasModifiedBuffThisTurn = false;
     private boolean hasModifiedDebuffThisTurn = false;
 
-    public Tasty(AbstractCreature owner, int amount) {
+    public SupertasterPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 

@@ -22,9 +22,8 @@ public class Multitask extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // Play the top card of the draw pile.
-        AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
-
         AbstractCard lastCardPlayed = getLastNonMultitaskCardPlayed();
+        AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
 
         if (lastCardPlayed != null) {
             AbstractCard cardToReplay = lastCardPlayed.makeStatEquivalentCopy();

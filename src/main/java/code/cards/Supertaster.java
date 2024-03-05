@@ -2,7 +2,7 @@ package code.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.powers.Tasty;
+import code.powers.SupertasterPower;
 
 import static code.ModFile.makeID;
 
@@ -16,7 +16,7 @@ public class Supertaster extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        p.addPower(new Tasty(p, this.magicNumber));
+        p.addPower(new SupertasterPower(p, this.magicNumber));
     }
 
     @Override

@@ -1,15 +1,15 @@
 {
   "${ModID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaustive: !stslib:ex"
+    "DESCRIPTION": "Deal !D! damage. NL Exhaustive !stslib:ex!"
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaustive: !stslib:ex"
+    "DESCRIPTION": "Gain !B! Block. NL Exhaustive !stslib:ex!"
   },
   "${ModID}:Alert": {
     "NAME": "Alert",
-    "DESCRIPTION": "Gain !B! Block twice. NL Exhaustive: !stslib:ex"
+    "DESCRIPTION": "Gain !B! Block twice. NL Exhaustive !stslib:ex!"
   },
   "${ModID}:Struggle": {
     "NAME": "Struggle",
@@ -67,22 +67,31 @@
   },
   "${ModID}:HyperFocus": {
     "NAME": "Hyper Focus",
-    "DESCRIPTION": "Gain +1 stat - Pick one:  NL Convert all new Strength or Dexterity into one stat for 3 Turns",
+    "DESCRIPTION": "Gain +1 stat - Pick one: NL Convert all new Strength or Dexterity into one stat for 3 Turns.",
     "EXTENDED_DESCRIPTION": [
       "Strength",
-      "Add 1 Strength NL then apply Strength Fixation",
+      "Add 1 Strength. NL Apply Strength Fixation.",
       "Dexterity",
-      "Add 1 Dexterity NL then apply Dexterity Fixation"
+      "Add 1 Dexterity. NL Apply Dexterity Fixation."
     ]
+  },
+  "${ModID}:HyperFocusStrength": {
+    "NAME": "Hyper Focus",
+    "DESCRIPTION": "Swappable NL Gain +1 Strength NL Convert all new Dexterity into Strength for 3 Turns."
+  },
+
+  "${ModID}:HyperFocusDexterity": {
+    "NAME": "Hyper Focus",
+    "DESCRIPTION": "Swappable NL Gain +1 Dexterity NL Convert all new Strength into Dexterity for 3 Turns."
   },
   "${ModID}:Temperance": {
     "NAME": "Temperance",
-    "DESCRIPTION": "Choose one with Buff: Thrice deal !D! damage all enemies or thrice Gain !B! Block per card Exhausted NL Exhaust",
+    "DESCRIPTION": "Choose one with Buff: Thrice deal !D! damage all enemies or thrice Gain !B! Block per card Exhausted. NL Exhaust",
     "EXTENDED_DESCRIPTION": [
       "Spiteful",
-      "Exhaust all skills NL Apply Strength and Attack All Thrice for !D! per Exhausted",
+      "Exhaust all skills. NL Apply Strength and Attack All Thrice for !D! per Exhausted.",
       "Patient",
-      "Exhaust all attacks NL Apply Dexterity and Block Thrice for !B! per Exhausted"
+      "Exhaust all attacks. NL Apply Dexterity and Block Thrice for !B! per Exhausted."
     ]
   },
   "${ModID}:Concentration": {
@@ -100,22 +109,22 @@
   },
   "${ModID}:HyperStrike": {
     "NAME": "Hyper Strike",
-    "DESCRIPTION": "Deal !D! damage NL Draw !M! card",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Draw !M! cards"
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
   },
   "${ModID}:HyperVigilance": {
     "NAME": "Hyper Vigilance",
-    "DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible NL Gain 1 Artifact NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible NL Gain 2 Artifact NL Exhaust"
+    "DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 1 Artifact. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 2 Artifact. NL Exhaust"
   },
   "${ModID}:RacingThoughts": {
     "NAME": "Racing Thoughts",
-    "DESCRIPTION": "Draw !M! cards NL Find a random third card. Exhaustive: !stslib:ex!"
+    "DESCRIPTION": "Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaustive !stslib:ex!"
   },
   "${ModID}:HyperKick": {
     "NAME": "Hyper Kick",
-    "DESCRIPTION": "Deal !D! damage 2 times NL Exhaust a card",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times NL Exhaust a card",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL Exhaust a card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 2 times. NL Exhaust a card.",
     "Flavor": "Hyperrr Kick!"
   },
   "${ModID}:ZeroPointOverdrive": {
@@ -128,47 +137,57 @@
   },
   "${ModID}:Adderall": {
     "NAME": "Adderall",
-    "DESCRIPTION": "Apply !M! Scaling Vigor and !M! Scaling Block. NL Each subsequent Attack this turn gains +2 additional Vigor, and each Skill gains +2 additional Block.",
-    "UPGRADE_DESCRIPTION": "Reduce cost. Increase the scaling effect for both Vigor and Block by !M!."
+    "DESCRIPTION": "Swappable NL Apply !M! Scaling Vigor and !M! Scaling Block. NL Each subsequent Attack this turn gains +2 additional Vigor, and each Skill gains +2 additional Block.",
+    "UPGRADE_DESCRIPTION": "Swappable NL Reduce cost. Increase the scaling effect for both Vigor and Block by !M!."
+  },
+  "${ModID}:InertiaBlock": {
+    "NAME": "Inertia:Block",
+    "DESCRIPTION": "Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block.",
+    "UPGRADE_DESCRIPTION": "Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block."
+  },
+  "${ModID}:InertiaVigor": {
+    "NAME": "Inertia:Vigor",
+    "DESCRIPTION": "Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor.",
+    "UPGRADE_DESCRIPTION": "Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor."
   },
   "${ModID}:Supertaster": {
     "NAME": "Supertaster",
-    "DESCRIPTION": "The first buff and debuff on you each turn is increased by 1"
+    "DESCRIPTION": "The first buff and debuff on you each turn is increased by 1."
   },
   "${ModID}:TemperanceSpiteful": {
-    "NAME": "Temperance",
-    "DESCRIPTION": "Swappable NL Exhaust all skills in hand NL Apply Strength and Attack All Thrice for !D! per Exhausted NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all skills in hand NL Apply Strength and Attack All Thrice for !D! per Exhausted"
+    "NAME": "Temperance:Spiteful",
+    "DESCRIPTION": "Swappable NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted."
   },
   "${ModID}:TemperancePatient": {
-    "NAME": "Temperance",
-    "DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand NL Apply Dexterity and Block Thrice for !B! per Exhausted NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand NL Apply Dexterity and Block Thrice for !B! per Exhausted"
+    "NAME": "Temperance:Patient",
+    "DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted."
   },
   "${ModID}:ReroutingBlock": {
     "NAME": "Rerouting:Block",
-    "DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat NL Discard 1 attack card at random",
-    "UPGRADE_DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat NL Discard 1 attack card at random"
+    "DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random.",
+    "UPGRADE_DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random."
   },
   "${ModID}:ReroutingAttack": {
     "NAME": "Rerouting:Attack",
-    "DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat NL Discard 1 skill card at random",
-    "UPGRADE_DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat NL Discard 1 skill card at random"
+    "DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random.",
+    "UPGRADE_DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random."
   },
     "${ModID}:Ping": {
       "NAME": "Ping",
-      "DESCRIPTION": "Draw 1 card per enemy NL Exhaustive: !stslib:ex!",
-      "UPGRADE_DESCRIPTION": "Draw 1 card and gain 3 Vigor per enemy NL Exhaustive: !stslib:ex!"
+      "DESCRIPTION": "Draw 1 card per enemy. NL Exhaustive !stslib:ex!",
+      "UPGRADE_DESCRIPTION": "Draw 1 card and gain 3 Vigor per enemy. NL Exhaustive !stslib:ex!"
     },
   "${ModID}:Traceroute": {
     "NAME": "Traceroute",
-    "DESCRIPTION": "Return a card from your exhaust pile to your hand",
-    "UPGRADE_DESCRIPTION": "Return a card from your exhaust pile to your hand"
+    "DESCRIPTION": "Return a card from your exhaust pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Return a card from your exhaust pile to your hand."
   },
   "${ModID}:Exploit": {
     "NAME": "Exploit",
-    "DESCRIPTION": "Apply 2 Weak NL Apply 1 Slow NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Apply 2 Vulnerable NL Apply 2 Weak NL Apply 1 Slow NL Exhaust"
+    "DESCRIPTION": "Apply 2 Weak. NL Apply 1 Slow. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Apply 2 Vulnerable. NL Apply 2 Weak. NL Apply 1 Slow. NL Exhaust"
   }
 }
 

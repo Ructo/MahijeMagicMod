@@ -1,5 +1,7 @@
 package code.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import code.actions.EasyModalChoiceAction;
 import code.cards.democards.complex.InlinePowerDemo;
 import code.powers.DexFixation;
@@ -14,6 +16,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 
+@NoPools
+@NoCompendium
 public class HyperFocus extends AbstractEasyCard {
     public final static String ID = makeID("HyperFocus");
 

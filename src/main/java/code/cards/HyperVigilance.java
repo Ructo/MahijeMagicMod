@@ -15,7 +15,7 @@ public class HyperVigilance extends AbstractEasyCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public HyperVigilance() {
-        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1; // Used for the VigilantPower
         baseSecondMagic = secondMagic = 1; // Used for the Artifact effect
         baseBlock = 1;
@@ -33,7 +33,7 @@ public class HyperVigilance extends AbstractEasyCard {
 
 
     public void upp() {
-        upgradeSecondMagic(1);
+        upgradeBaseCost(2);
         this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
 

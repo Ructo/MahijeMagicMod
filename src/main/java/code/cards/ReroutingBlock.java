@@ -18,7 +18,7 @@ import static code.ModFile.makeID;
 
 public class ReroutingBlock extends AbstractSwappableCard {
     public static final String ID = makeID("ReroutingBlock");
-
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public ReroutingBlock() {
         this(new ReroutingAttack(null));
     }
