@@ -1,4 +1,4 @@
-package com.megacrit.cardcrawl.cards.red;
+package code.cards;
 
 import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

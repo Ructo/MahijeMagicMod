@@ -77,12 +77,12 @@
   },
   "${ModID}:HyperFocusStrength": {
     "NAME": "Hyper Focus",
-    "DESCRIPTION": "Swappable NL Gain +1 Strength NL Convert all new Dexterity into Strength for 3 Turns."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain +1 Strength NL Convert all new Dexterity into Strength for 3 Turns."
   },
 
   "${ModID}:HyperFocusDexterity": {
     "NAME": "Hyper Focus",
-    "DESCRIPTION": "Swappable NL Gain +1 Dexterity NL Convert all new Strength into Dexterity for 3 Turns."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain +1 Dexterity NL Convert all new Strength into Dexterity for 3 Turns."
   },
   "${ModID}:Temperance": {
     "NAME": "Temperance",
@@ -115,7 +115,7 @@
   "${ModID}:HyperVigilance": {
     "NAME": "Hyper Vigilance",
     "DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 1 Artifact. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 2 Artifact. NL Exhaust"
+    "UPGRADE_DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 1 Artifact. NL Exhaust"
   },
   "${ModID}:RacingThoughts": {
     "NAME": "Racing Thoughts",
@@ -137,18 +137,18 @@
   },
   "${ModID}:Adderall": {
     "NAME": "Adderall",
-    "DESCRIPTION": "Swappable NL Apply !M! Scaling Vigor and !M! Scaling Block. NL Each subsequent Attack this turn gains +2 additional Vigor, and each Skill gains +2 additional Block.",
-    "UPGRADE_DESCRIPTION": "Swappable NL Reduce cost. Increase the scaling effect for both Vigor and Block by !M!."
+    "DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor and !M! Scaling Block. NL Each subsequent Attack this turn gains +2 additional Vigor, and each Skill gains +2 additional Block.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Reduce cost. Increase the scaling effect for both Vigor and Block by !M!."
   },
   "${ModID}:InertiaBlock": {
     "NAME": "Inertia:Block",
-    "DESCRIPTION": "Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block.",
-    "UPGRADE_DESCRIPTION": "Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block."
+    "DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block."
   },
   "${ModID}:InertiaVigor": {
     "NAME": "Inertia:Vigor",
-    "DESCRIPTION": "Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor.",
-    "UPGRADE_DESCRIPTION": "Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor."
+    "DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor."
   },
   "${ModID}:Supertaster": {
     "NAME": "Supertaster",
@@ -156,23 +156,23 @@
   },
   "${ModID}:TemperanceSpiteful": {
     "NAME": "Temperance:Spiteful",
-    "DESCRIPTION": "Swappable NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted."
+    "DESCRIPTION": "${ModID}:Swappable NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted."
   },
   "${ModID}:TemperancePatient": {
     "NAME": "Temperance:Patient",
-    "DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Swappable NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted."
+    "DESCRIPTION": "${ModID}:Swappable NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted."
   },
   "${ModID}:ReroutingBlock": {
     "NAME": "Rerouting:Block",
-    "DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random.",
-    "UPGRADE_DESCRIPTION": "Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random."
   },
   "${ModID}:ReroutingAttack": {
     "NAME": "Rerouting:Attack",
-    "DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random.",
-    "UPGRADE_DESCRIPTION": "Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random."
   },
     "${ModID}:Ping": {
       "NAME": "Ping",

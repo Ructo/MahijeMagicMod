@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>UnimportantInfo</groupId>
 
-    <artifactId>MahijeMagicMod</artifactId>
-    <version>0.0.1</version>
+    <artifactId>mahijemagicmod</artifactId>
+    <version>0.0.3</version>
     <name>Mahije's Magic Mod</name>
     <description>Flashy powers and fun relics, play with magic by using friends!</description>
     <!-- Change the above for mod information. -->
@@ -17,7 +17,7 @@
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
 
         <!-- CHANGE THIS TO MATCH YOUR MODID FIELD IN THE MAIN TodoMod CLASS FILE -->
-        <ModID>MahijeMagicMod</ModID>
+        <ModID>mahijemagicmod</ModID>
         <!-- CHANGE THIS TO MATCH YOUR MODID FIELD IN THE MAIN TodoMod CLASS FILE -->
 
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->

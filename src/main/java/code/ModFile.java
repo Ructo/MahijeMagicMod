@@ -38,7 +38,7 @@ public class ModFile implements
         EditCharactersSubscriber,
         AddAudioSubscriber {
 
-    public static final String modID = "MahijeMagicMod"; //TODO: Change this.
+    public static final String modID = "mahijemagicmod"; //TODO: Change this.
 
     public static String makeID(String idText) {
         return modID + ":" + idText;

@@ -1,2 +1,2 @@
-# MahijeMagicMod
+# mahijemagicmod
  Slay the Spire Mod
