@@ -52,12 +52,14 @@ public class TemperanceSpiteful extends AbstractSwappableCard {
         }
     }
 
-    @Override
+
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.exhaust = false;
             this.cardsToPreview.upgrade();
+            this.exhaust = false;
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 

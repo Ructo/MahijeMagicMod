@@ -1,5 +1,7 @@
 package code.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import code.powers.ScalingVigorPower;
@@ -8,6 +10,8 @@ import code.cards.AbstractEasyCard;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
+@NoPools
+@NoCompendium
 
 public class Adderall extends AbstractEasyCard {
     public static final String ID = makeID("Adderall");

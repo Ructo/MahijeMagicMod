@@ -1,4 +1,6 @@
 package code.cards;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import code.cards.InertiaBlock;
 import code.actions.SwapCardsAction;
 import code.cards.abstractCards.AbstractSwappableCard;
@@ -14,7 +16,8 @@ import code.cards.AbstractEasyCard;
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
-
+@NoPools
+@NoCompendium
 public class InertiaBlock extends AbstractSwappableCard {
     public static final String ID = makeID("InertiaBlock");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -38,7 +38,7 @@ public class Concentration extends AbstractEasyCard {
             addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new StrengthPower((AbstractCreature) p, this.magicNumber)));
             addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new DexterityPower((AbstractCreature) p, this.secondMagic)));
         } else {
-            addToBot((AbstractGameAction) new ExhaustAction(1, true, false, false));
+            addToBot((AbstractGameAction) new ExhaustAction(1, false));
             addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new StrengthPower((AbstractCreature) p, this.magicNumber)));
             addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) p, (AbstractCreature) p, (AbstractPower) new DexterityPower((AbstractCreature) p, this.secondMagic)));
         }

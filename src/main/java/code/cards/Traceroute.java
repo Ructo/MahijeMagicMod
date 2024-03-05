@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static code.ModFile.makeID;
+
 public class Traceroute extends AbstractEasyCard {
-    public static final String ID = "Traceroute"; // Make sure to register this ID properly in your mod setup.
+    public final static String ID = makeID("Traceroute"); // Make sure to register this ID properly in your mod setup.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public Traceroute() {

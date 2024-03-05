@@ -1,5 +1,7 @@
 package code.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import code.actions.SwapCardsAction;
 import code.cards.abstractCards.AbstractSwappableCard;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
@@ -16,7 +18,8 @@ import java.util.ArrayList;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
-
+@NoPools
+@NoCompendium
 public class ReroutingAttack extends AbstractSwappableCard {
     public static final String ID = makeID("ReroutingAttack");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
