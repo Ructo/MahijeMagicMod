@@ -184,7 +184,8 @@
   },
   "${ModID}:Supertaster": {
     "NAME": "Supertaster",
-    "DESCRIPTION": "The first buff and debuff on you each turn is increased by 1."
+    "DESCRIPTION": "The first buff and debuff on you each turn is increased by 1.",
+    "UPGRADE_DESCRIPTION": "Innate NL The first buff and debuff on you each turn is increased by 1."
   },
   "${ModID}:StartupBlockCard": {
     "NAME": "Startup And AOE",

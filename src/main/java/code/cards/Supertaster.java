@@ -10,7 +10,7 @@ public class Supertaster extends AbstractEasyCard {
     public final static String ID = makeID( "Supertaster");
 
     public Supertaster() {
-        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 1; // This represents the amount to modify buffs/debuffs.
     }
 
@@ -23,7 +23,9 @@ public class Supertaster extends AbstractEasyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1); // As an example upgrade, reduce the cost.
+        this.isInnate = true;
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }
