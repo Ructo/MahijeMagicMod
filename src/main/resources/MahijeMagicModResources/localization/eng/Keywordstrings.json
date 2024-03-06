@@ -13,5 +13,19 @@
   "swappable"
 ],
   "DESCRIPTION": "#yRight #yClick to swap the effect of this card."
+  },
+  {
+    "PROPER_NAME": "Charged",
+    "NAMES": [
+      "charged"
+    ],
+    "DESCRIPTION": "Gain 3 Void. Use Ready Weapons to negate"
+  },
+  {
+    "PROPER_NAME": "Ready Weapons",
+    "NAMES": [
+      "readied"
+    ],
+    "DESCRIPTION": "Weapons Ready, gain 6 Void. Use Hyper Electro Beam to negate."
   }
 ]

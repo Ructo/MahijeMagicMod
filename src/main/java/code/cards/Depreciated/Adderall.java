@@ -1,4 +1,4 @@
-package code.cards;
+package code.cards.Depreciated;
 
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;

@@ -8,6 +8,11 @@
     "NAME": "Alert",
     "DESCRIPTION": "Gain !B! Block twice. NL Exhaustive !stslib:ex!"
   },
+  "${ModID}:ChargingUp": {
+    "NAME": "Charging Up",
+    "DESCRIPTION": "Gain !B! Block and 2 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block and 2 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged"
+  },
   "${ModID}:Concentration": {
     "NAME": "Concentration",
     "DESCRIPTION": "Exhaust a card NL Gain !M! Strength. NL Gain !${ModID}:m2! Dexterity. NL Exhaust",
@@ -48,15 +53,25 @@
     "NAME": "Two Amount Power",
     "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
   },
+  "${ModID}:Experience": {
+    "NAME": "Experience",
+    "DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage NL Exhaust"
+  },
   "${ModID}:Exploit": {
     "NAME": "Exploit",
-    "DESCRIPTION": "Apply 2 Weak. NL Apply 1 Slow. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Apply 2 Vulnerable. NL Apply 2 Weak. NL Apply 1 Slow. NL Exhaust"
+    "DESCRIPTION": "Apply 1 Weak. NL Apply 1 Slow. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Apply 1 Vulnerable. NL Apply 2 Weak. NL Apply 1 Slow. NL Exhaust"
   },
   "${ModID}:Flail": {
     "NAME": "Flail",
     "DESCRIPTION": "Just start swinging! Deal !D! damage !M! times. NL Exhaust",
     "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+  "${ModID}:HyperElectroBeam": {
+    "NAME": "Hyper Electro Beam",
+    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times. NL NL Remove ${ModID}:Readied",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!}+1 times. NL Remove ${ModID}:Readied"
   },
   "${ModID}:HyperFocus": {
     "NAME": "Hyper Focus",
@@ -91,6 +106,16 @@
     "NAME": "Hyper Vigilance",
     "DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 1 Artifact. NL Exhaust",
     "UPGRADE_DESCRIPTION": "Prepare for anything! NL Gain 1 Intangible. NL Gain 1 Artifact. NL Exhaust"
+  },
+  "${ModID}:HyperVigilanceRepel": {
+    "NAME": "Hyper Vigilance:Repel",
+    "DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 1 Artifact. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 2 Artifact. NL Exhaust"
+  },
+  "${ModID}:HyperVigilanceWall": {
+    "NAME": "Hyper Vigilance:Wall",
+    "DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 50 Block. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 50 Block. NL Exhaust"
   },
   "${ModID}:ImpulsePull": {
     "NAME": "Impulse Pull",
@@ -127,12 +152,17 @@
   },
   "${ModID}:Ping": {
     "NAME": "Ping",
-    "DESCRIPTION": "Draw 1 card per enemy. NL Exhaustive !stslib:ex!",
-    "UPGRADE_DESCRIPTION": "Draw 1 card and gain 3 Vigor per enemy. NL Exhaustive !stslib:ex!"
+    "DESCRIPTION": "Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaustive !stslib:ex!",
+    "UPGRADE_DESCRIPTION": "Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaustive !stslib:ex!"
   },
   "${ModID}:RacingThoughts": {
     "NAME": "Racing Thoughts",
     "DESCRIPTION": "Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaustive !stslib:ex!"
+  },
+  "${ModID}:ReadyWeapons": {
+    "NAME": "Ready Weapons",
+    "DESCRIPTION": "Gain 6 Vigor and 6 Energy. NL Add Hyper Electro Beam to hand. NL Replace ${ModID}:Charged with ${ModID}:Readied",
+    "UPGRADE_DESCRIPTION": "Gain 6 Vigor and 6 Energy. NL Add Hyper Electro Beam to hand. NL Replace ${ModID}:Charged with ${ModID}:Readied"
   },
   "${ModID}:ReroutingAttack": {
     "NAME": "Rerouting:Attack",

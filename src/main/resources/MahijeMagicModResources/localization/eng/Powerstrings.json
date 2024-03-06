@@ -21,13 +21,24 @@
       " turns"
     ]
   },
-
   "${ModID}:ScalingVigorPower": {
     "NAME": "Scaling Vigor",
     "DESCRIPTIONS": [
       "The first Attack each turn gains #b",
       "+2 Vigor. Each subsequent Attack gains #b",
       "+2 additional Vigor than the previous one this turn."
+    ]
+  },
+  "${ModID}:ChargingUpPower": {
+    "NAME": "Charged",
+    "DESCRIPTIONS": [
+      "Charged Up, gain 3 Void. Use Ready Weapons to negate."
+    ]
+  },
+  "${ModID}:ReadyWeaponsPower": {
+    "NAME": "Readied",
+    "DESCRIPTIONS": [
+      "Weapons Ready, gain 6 Void. Use Hyper Electro Beam to negate."
     ]
   },
   "${ModID}:ScalingBlockPower": {

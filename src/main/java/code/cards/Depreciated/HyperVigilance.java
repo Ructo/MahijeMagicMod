@@ -1,5 +1,8 @@
-package code.cards;
+package code.cards.Depreciated;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
+import code.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,13 +12,14 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import static code.ModFile.makeID;
-
+@NoPools
+@NoCompendium
 public class HyperVigilance extends AbstractEasyCard {
     public static final String ID = makeID("HyperVigilance");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public HyperVigilance() {
-        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1; // Used for the VigilantPower
         baseSecondMagic = secondMagic = 1; // Used for the Artifact effect
         baseBlock = 1;

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static code.ModFile.makeID;
 
@@ -18,9 +18,8 @@ public class Ping extends AbstractEasyCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public Ping() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        this.baseMagicNumber = 1; // Used for the number of cards to draw and Vigor to apply when upgraded
-        this.magicNumber = this.baseMagicNumber;
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY); // Changed target to ALL_ENEMY
+        this.magicNumber = this.baseMagicNumber = 1; // Used for the number of Vulnerable stacks to apply
         ExhaustiveVariable.setBaseValue(this, 2);
     }
 
@@ -31,17 +30,18 @@ public class Ping extends AbstractEasyCard {
         // Draw 1 card per enemy
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, enemyCount));
 
-        // If upgraded, also apply 3 Vigor per enemy
-        if (this.upgraded) {
-            for (int i = 0; i < enemyCount; i++) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VigorPower(p, this.magicNumber * 3), this.magicNumber * 3));
+        // Apply 1 Vulnerable to each enemy
+        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+            if (!mo.isDeadOrEscaped()) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber));
             }
         }
     }
+
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            ExhaustiveVariable.upgrade(this, 1);
+            upgradeBaseCost(0);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

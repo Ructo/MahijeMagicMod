@@ -46,9 +46,9 @@ public class TemperanceSpiteful extends AbstractSwappableCard {
         }
         if (numSkillsExhausted > 0) {
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, numSkillsExhausted), numSkillsExhausted));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractCreature) p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.NONE, true));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractCreature) p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.NONE, false));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractCreature) p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.NONE, true));
+            allDmg(AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+            allDmg(AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+            allDmg(AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         }
     }
 

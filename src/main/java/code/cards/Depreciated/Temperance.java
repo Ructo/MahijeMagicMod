@@ -1,7 +1,9 @@
-package code.cards;
+package code.cards.Depreciated;
 
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
+import code.cards.AbstractEasyCard;
+import code.cards.EasyModalChoiceCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;

@@ -1,8 +1,10 @@
-package code.cards;
+package code.cards.Depreciated;
 
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import code.actions.EasyModalChoiceAction;
+import code.cards.AbstractEasyCard;
+import code.cards.EasyModalChoiceCard;
 import code.cards.democards.complex.InlinePowerDemo;
 import code.powers.DexFixation;
 import code.powers.StrFixation;

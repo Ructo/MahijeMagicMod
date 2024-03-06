@@ -2,9 +2,7 @@ package code.relics;
 
 import code.CharacterFile;
 import code.cards.Flail;
-import code.cards.HyperFocus;
 import code.cards.Struggle;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
