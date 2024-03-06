@@ -27,7 +27,7 @@ public class ReadyWeaponsPower extends AbstractEasyPower {
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
             if (owner.hasPower(this.ID)) {
-                // Add 6 VoidEssence cards to the draw pile
+                // Add 6 Void cards to the draw pile
                 addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), 6, true, true));
                 // Remove this power
                 addToBot(new RemoveSpecificPowerAction(owner, owner, this.ID));

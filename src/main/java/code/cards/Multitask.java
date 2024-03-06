@@ -20,9 +20,6 @@ public class Multitask extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Automatically play the top card of the draw pile.
-        AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(null, false));
-
         // If there is a card to replay from the last turn, replay it.
         AbstractCard lastCardPlayed = getLastNonMultitaskCardPlayed();
         if (lastCardPlayed != null) {
@@ -34,13 +31,23 @@ public class Multitask extends AbstractEasyCard {
                 // If the card targets all enemies, use the card without specifying a single target.
                 AbstractDungeon.actionManager.addToBottom(new QueueCardAction(cardToReplay, null));
             } else {
-                // For single-target cards, specify the target monster.
-                AbstractDungeon.actionManager.addToBottom(new QueueCardAction(cardToReplay, m));
+                // For single-target cards, check if a valid monster is available.
+                AbstractMonster targetMonster = AbstractDungeon.getRandomMonster();
+                if (targetMonster != null) {
+                    // If a valid monster is available, specify the target monster.
+                    AbstractDungeon.actionManager.addToBottom(new QueueCardAction(cardToReplay, targetMonster));
+                } else {
+                    // If no valid monster is available, use the card without specifying a target.
+                    AbstractDungeon.actionManager.addToBottom(new QueueCardAction(cardToReplay, null));
+                }
             }
 
             // Update preview with the last played card
             this.cardsToPreview = lastCardPlayed.makeStatEquivalentCopy();
         }
+
+        // Automatically play the top card of the draw pile after replaying the last card.
+        AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(null, false));
     }
 
     private AbstractCard getLastNonMultitaskCardPlayed() {
