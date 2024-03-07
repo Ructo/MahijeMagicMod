@@ -6,6 +6,7 @@ import code.powers.ChargingUpPower;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -33,9 +34,9 @@ public class ReadyWeapons extends AbstractEasyCard {
             addToBot(new RemoveSpecificPowerAction(p, p, ChargingUpPower.POWER_ID));
         }
         applyToSelf(new ReadyWeaponsPower(p));
-        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new VigorPower(p, 6), 6));
-        addToBot((AbstractGameAction)new GainEnergyAction(6));
-        addToBot(new MakeTempCardInHandAction(new HyperElectroBeam(), 1));
+        AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(p, p, new VigorPower(p, 5), 5));
+        addToBot((AbstractGameAction)new GainEnergyAction(5));
+        addToBot((AbstractGameAction)new MakeTempCardInDrawPileAction(this.cardsToPreview.makeStatEquivalentCopy(), 1, false, true));
     }
 
     @Override

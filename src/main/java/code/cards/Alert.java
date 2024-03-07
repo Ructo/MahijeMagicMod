@@ -12,7 +12,7 @@ public class Alert extends AbstractEasyCard {
 
     public Alert() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        ExhaustiveVariable.setBaseValue(this, 2);
+        ExhaustiveVariable.setBaseValue(this, 1);
         baseBlock = 4;
     }
 

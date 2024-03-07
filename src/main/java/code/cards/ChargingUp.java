@@ -36,6 +36,7 @@ public class ChargingUp extends AbstractEasyCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
+            this.upgradeBlock(6);
             this.cardsToPreview.upgrade();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();

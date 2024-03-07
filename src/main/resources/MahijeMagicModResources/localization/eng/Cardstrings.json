@@ -10,8 +10,8 @@
   },
   "${ModID}:ChargingUp": {
     "NAME": "Charging Up",
-    "DESCRIPTION": "Gain !B! Block and 2 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block and 2 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged"
+    "DESCRIPTION": "Gain !B! Block and 3 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block and 3 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged"
   },
   "${ModID}:Concentration": {
     "NAME": "Concentration",
@@ -20,9 +20,9 @@
   },
   "${ModID}:CreativeMind": {
     "NAME": "Creative Mind",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust.",
+    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Exhaust and Ethereal.",
     "EXTENDED_DESCRIPTION": [
-      "Choose a card to add into your hand with Ethereal and Exhaust."
+      "Choose a card to add into your hand with Exhaust and Ethereal."
     ]
   },
   "${ModID}:Defend": {
@@ -55,8 +55,8 @@
   },
   "${ModID}:Experience": {
     "NAME": "Experience",
-    "DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage NL Exhaust"
+    "DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage."
   },
   "${ModID}:Exploit": {
     "NAME": "Exploit",
@@ -70,8 +70,8 @@
   },
   "${ModID}:HyperElectroBeam": {
     "NAME": "Hyper Electro Beam",
-    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times. NL NL Remove ${ModID}:Readied",
-    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!}+1 times. NL Remove ${ModID}:Readied"
+    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times to all enemies. NL NL Remove ${ModID}:Readied",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!}+1 times to all enemies. NL Remove ${ModID}:Readied"
   },
   "${ModID}:HyperFocus": {
     "NAME": "Hyper Focus",
@@ -114,8 +114,8 @@
   },
   "${ModID}:HyperVigilanceWall": {
     "NAME": "Hyper Vigilance:Wall",
-    "DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 50 Block. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 50 Block. NL Exhaust"
+    "DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain !B! Block. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain !B! Block. NL Exhaust"
   },
   "${ModID}:ImpulsePull": {
     "NAME": "Impulse Pull",
@@ -129,8 +129,8 @@
   },
   "${ModID}:InertiaVigor": {
     "NAME": "Inertia:Vigor",
-    "DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Skill gains +!M! additional Vigor."
+    "DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Attack gains +!M! additional Vigor.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Vigor. NL Each subsequent Attack gains +!M! additional Vigor."
   },
   "${ModID}:InlinePowerDemo": {
     "NAME": "Inline Power",
@@ -148,7 +148,7 @@
   },
   "${ModID}:Multitask": {
     "NAME": "Multitask",
-    "DESCRIPTION": "Play the top card of your draw pile and the top card of your discard pile. NL Exhaust"
+    "DESCRIPTION": "Play the last card you played and play the top card of your draw pile. NL Exhaust"
   },
   "${ModID}:Ping": {
     "NAME": "Ping",
@@ -161,18 +161,18 @@
   },
   "${ModID}:ReadyWeapons": {
     "NAME": "Ready Weapons",
-    "DESCRIPTION": "Gain 6 Vigor and 6 Energy. NL Add Hyper Electro Beam to hand. NL Replace ${ModID}:Charged with ${ModID}:Readied",
-    "UPGRADE_DESCRIPTION": "Gain 6 Vigor and 6 Energy. NL Add Hyper Electro Beam to hand. NL Replace ${ModID}:Charged with ${ModID}:Readied"
+    "DESCRIPTION": "Gain 5 Vigor and 5 Energy. NL Add Hyper Electro Beam to top of draw pile. NL Replace ${ModID}:Charged with ${ModID}:Readied",
+    "UPGRADE_DESCRIPTION": "Gain 5 Vigor and 5 Energy. NL Add Hyper Electro Beam to top of draw pile. NL Replace ${ModID}:Charged with ${ModID}:Readied"
   },
   "${ModID}:ReroutingAttack": {
     "NAME": "Rerouting:Attack",
-    "DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL Discard 1 skill card at random."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL ${ModID}:Discard 1 skill card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL ${ModID}:Discard 1 skill card at random."
   },
   "${ModID}:ReroutingBlock": {
     "NAME": "Rerouting:Block",
-    "DESCRIPTION": "${ModID}:Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !B! block for each enemy in combat. NL Discard 1 attack card at random."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain !B! block for each enemy in combat. NL ${ModID}:Discard 1 attack card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !B! block for each enemy in combat. NL ${ModID}:Discard 1 attack card at random."
   },
   "${ModID}:Strike": {
     "NAME": "Strike",
@@ -222,6 +222,6 @@
   },
   "${ModID}:ZeroPointOverdrive": {
     "NAME": "Zero Point Overdrive",
-    "DESCRIPTION": "Can only be played if your hand, draw pile, or both are empty. NL Deal !D! damage to ALL."
+    "DESCRIPTION": "Can only be played if your hand, discard pile, or draw pile are empty. NL Deal !D! damage to ALL."
   }
 }

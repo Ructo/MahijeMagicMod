@@ -32,13 +32,13 @@
   "${ModID}:ChargingUpPower": {
     "NAME": "Charged",
     "DESCRIPTIONS": [
-      "Charged Up, gain 3 Void. Use Ready Weapons to negate."
+      "Charged Up, gain 3 Void at the end of turn. Use Ready Weapons to negate."
     ]
   },
   "${ModID}:ReadyWeaponsPower": {
     "NAME": "Readied",
     "DESCRIPTIONS": [
-      "Weapons Ready, gain 6 Void. Use Hyper Electro Beam to negate."
+      "Weapons Ready, gain 6 Void at the end of next turn. Use Hyper Electro Beam to negate."
     ]
   },
   "${ModID}:ScalingBlockPower": {

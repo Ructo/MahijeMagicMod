@@ -14,23 +14,29 @@ public class ReadyWeaponsPower extends AbstractEasyPower {
     public static final String NAME = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).NAME;
     public static final String[] DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).DESCRIPTIONS;
 
+    private int turnCounter = 0; // New field to track the number of turns
+
     public ReadyWeaponsPower(AbstractCreature owner) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, -1);
-
     }
 
     @Override
     public void updateDescription() {
-        this.description = "Weapons Ready. Hyper Electro Beam will consume this power.";
+        this.description = "Weapons Ready, gain 6 Void at the end of next turn. Use Hyper Electro Beam to negate.";
     }
+
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
             if (owner.hasPower(this.ID)) {
-                // Add 6 Void cards to the draw pile
-                addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), 6, true, true));
-                // Remove this power
-                addToBot(new RemoveSpecificPowerAction(owner, owner, this.ID));
+                turnCounter++;
+
+                if (turnCounter >= 2) {
+                    // Add 6 Void cards to the draw pile
+                    addToBot(new MakeTempCardInDrawPileAction(new VoidCard(), 6, true, true));
+                    // Remove this power
+                    addToBot(new RemoveSpecificPowerAction(owner, owner, this.ID));
+                }
             }
         }
     }

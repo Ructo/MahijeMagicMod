@@ -22,7 +22,7 @@ public class ChargingUpPower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = "Charged Up. Ready Weapons will consume this power.";
+        this.description = "Gain 3 Void at the end of turn. Use Ready Weapons to negate";
     }
     @Override
     public void atEndOfTurn(boolean isPlayer) {

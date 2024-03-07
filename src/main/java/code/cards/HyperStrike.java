@@ -25,7 +25,7 @@ public class HyperStrike extends AbstractEasyCard {
 
     public HyperStrike() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 8;
+        baseDamage = 9;
         baseMagicNumber = magicNumber = 1;
         tags.add(CardTags.STRIKE);
         initializeDescription();
@@ -38,7 +38,8 @@ public class HyperStrike extends AbstractEasyCard {
 
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(1);
+        upgradeMagicNumber(1);
         this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }

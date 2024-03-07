@@ -21,7 +21,7 @@ public class StrFixation extends AbstractEasyPower implements BetterOnApplyPower
 
     public StrFixation(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, true, owner, amount);
-        addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, 1), 1));
+        addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, 2), 2));
     }
 
     @Override

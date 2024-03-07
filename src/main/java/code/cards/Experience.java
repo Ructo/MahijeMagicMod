@@ -14,12 +14,13 @@ import static code.ModFile.makeID;
 public class Experience extends AbstractEasyCard {
     public static final String ID = makeID("Experience");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
     public Experience() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = 0;
         this.exhaust = true;
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
@@ -34,12 +35,19 @@ public class Experience extends AbstractEasyCard {
     public void applyPowers() {
         this.baseDamage = AbstractDungeon.player.exhaustPile.size(); // Update damage based on current exhaust pile size
         super.applyPowers(); // Call super to calculate damage modifiers
-        updateDescription(); // Ensure description is updated to reflect current damage
+
+        // Update the description considering the upgraded state
+        if (this.upgraded) {
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION.replace("!D!", String.valueOf(this.damage));
+        } else {
+            this.rawDescription = cardStrings.DESCRIPTION.replace("!D!", String.valueOf(this.damage));
+        }
+        initializeDescription();
     }
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION; // Reset description upon moving to discard
+        this.rawDescription = this.upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         initializeDescription();
     }
 
@@ -47,7 +55,7 @@ public class Experience extends AbstractEasyCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeBaseCost(1); // Reduced cost when upgraded
+            this.exhaust = false;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription(); // Ensure upgraded description is displayed
         }
@@ -56,11 +64,5 @@ public class Experience extends AbstractEasyCard {
     @Override
     public AbstractCard makeCopy() {
         return new Experience();
-    }
-
-
-    public void updateDescription() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
     }
 }

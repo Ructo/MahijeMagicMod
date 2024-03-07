@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import static code.ModFile.makeID;
 
 public class ScalingBlockPower extends AbstractEasyPower {
-    public static final String POWER_ID = makeID("ScalingBlock");
+    public static final String POWER_ID = makeID("ScalingBlockPower");
     public static final String NAME = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).NAME;
     public static final String[] DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).DESCRIPTIONS;
     private int blockIncrement = 1; // Starting Block bonus

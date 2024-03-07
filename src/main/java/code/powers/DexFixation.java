@@ -21,7 +21,7 @@ public class DexFixation extends AbstractEasyPower implements BetterOnApplyPower
 
     public DexFixation(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, true, owner, amount);
-        addToBot(new ApplyPowerAction(owner, owner, new DexterityPower(owner, 1), 1));
+        addToBot(new ApplyPowerAction(owner, owner, new DexterityPower(owner, 2), 2));
     }
 
     @Override

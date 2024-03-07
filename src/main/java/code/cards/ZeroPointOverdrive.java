@@ -19,56 +19,69 @@ public class ZeroPointOverdrive extends AbstractEasyCard {
 
     public ZeroPointOverdrive() {
         super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 15;
-        magicNumber = baseMagicNumber = 30; // Ensure magicNumber is initialized correctly
+        baseDamage = 15; // Initial base damage
         this.rawDescription = DESCRIPTION;
         initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int damage = calculateDamage();
+        applyPowers(); // Make sure to recalculate damage based on current game state
+        int damage = this.damage; // Use the updated damage value
         addToBot(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage, true), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        boolean isOnlyCardInHand = p.hand.size() == 1 && p.hand.contains(this);
+        boolean isHandEmpty = p.hand.size() == 1 && p.hand.contains(this);
         boolean isDrawPileEmpty = p.drawPile.isEmpty();
-        return isOnlyCardInHand || isDrawPileEmpty;
+        boolean isDiscardPileEmpty = p.discardPile.isEmpty();
+        return isHandEmpty || isDrawPileEmpty || isDiscardPileEmpty;
     }
 
     @Override
     public void upp() {
-        upgradeDamage(5);
+        upgradeDamage(5); // Increase base damage by 5 upon upgrade
     }
 
-    private boolean shouldGlow() {
-        if (AbstractDungeon.player != null) {
-            boolean isOnlyCardInHand = AbstractDungeon.player.hand.size() == 1 && AbstractDungeon.player.hand.contains(this);
-            boolean isDrawPileEmpty = AbstractDungeon.player.drawPile.isEmpty();
-            return isOnlyCardInHand || isDrawPileEmpty;
+    private int calculateBaseDamage(AbstractPlayer p) {
+        int damage = baseDamage;
+        boolean isDrawPileEmpty = p.drawPile.isEmpty();
+
+        if (isDrawPileEmpty) {
+            damage += baseDamage * 2; // Adjust for triple the baseDamage when the draw pile is empty
         }
-        return false;
+        return damage;
+    }
+
+    @Override
+    public void applyPowers() {
+        int tempBaseDamage = this.baseDamage;
+        this.baseDamage = calculateBaseDamage(AbstractDungeon.player);
+        super.applyPowers(); // Apply game powers like Strength, Weakness, etc.
+        this.baseDamage = tempBaseDamage; // Restore original baseDamage
+        this.rawDescription = DESCRIPTION.replace("!D!", String.valueOf(this.damage)); // Update displayed damage
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        int tempBaseDamage = this.baseDamage;
+        this.baseDamage = calculateBaseDamage(AbstractDungeon.player);
+        super.calculateCardDamage(mo); // Apply game mechanics to this.damage
+        this.baseDamage = tempBaseDamage; // Restore original baseDamage
+        this.rawDescription = DESCRIPTION.replace("!D!", String.valueOf(this.damage)); // Update displayed damage
+        initializeDescription();
+    }
+
+    private boolean shouldGlow(AbstractPlayer p) {
+        return p.hand.size() == 1 && p.hand.contains(this) || p.drawPile.isEmpty() || p.discardPile.isEmpty();
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        this.glowColor = shouldGlow() ? AbstractCard.GOLD_BORDER_GLOW_COLOR : AbstractCard.BLUE_BORDER_GLOW_COLOR;
-    }
-
-    private int calculateDamage() {
         if (AbstractDungeon.player != null) {
-            boolean isHandOrDrawPileEmpty = AbstractDungeon.player.hand.isEmpty() || AbstractDungeon.player.drawPile.isEmpty();
-            return baseDamage + (isHandOrDrawPileEmpty ? magicNumber : 0);
+            this.glowColor = shouldGlow(AbstractDungeon.player) ? AbstractCard.GOLD_BORDER_GLOW_COLOR : AbstractCard.BLUE_BORDER_GLOW_COLOR;
         }
-        return baseDamage; // Default damage if player state can't be accessed
-    }
-
-    public void update() {
-        super.update();
-        int damage = calculateDamage();
-        this.rawDescription = DESCRIPTION.replace("!D!", String.valueOf(damage));
-        initializeDescription();
     }
 }

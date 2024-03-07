@@ -30,7 +30,7 @@ public class ReroutingAttack extends AbstractSwappableCard {
 
     public ReroutingAttack(AbstractSwappableCard linkedCard) {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 3;
         if (linkedCard == null) {
             this.setLinkedCard(new ReroutingBlock(this));
         } else {
@@ -65,7 +65,7 @@ public class ReroutingAttack extends AbstractSwappableCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(4);
             this.cardsToPreview.upgrade();
         }
     }

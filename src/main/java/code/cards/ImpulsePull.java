@@ -30,6 +30,7 @@ public class ImpulsePull extends AbstractEasyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeBaseCost(0);
             this.upgradeMagicNumber(3); // Upgrades the card so that it draws 8 cards instead of 5.
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();

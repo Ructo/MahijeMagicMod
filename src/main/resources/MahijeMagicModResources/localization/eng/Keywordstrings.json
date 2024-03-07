@@ -19,13 +19,20 @@
     "NAMES": [
       "charged"
     ],
-    "DESCRIPTION": "Gain 3 Void. Use Ready Weapons to negate"
+    "DESCRIPTION": "Gain 3 Void at the end of turn. Use Ready Weapons to negate"
+  },
+  {
+    "PROPER_NAME": "Discard",
+    "NAMES": [
+      "discard"
+    ],
+    "DESCRIPTION": "Add a card to the Discard Pile"
   },
   {
     "PROPER_NAME": "Ready Weapons",
     "NAMES": [
       "readied"
     ],
-    "DESCRIPTION": "Weapons Ready, gain 6 Void. Use Hyper Electro Beam to negate."
+    "DESCRIPTION": "Weapons Ready, gain 6 Void at the end of next turn. Use Hyper Electro Beam to negate."
   }
 ]
