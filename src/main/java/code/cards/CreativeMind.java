@@ -22,8 +22,8 @@ public class CreativeMind extends AbstractEasyCard {
 
     public CreativeMind() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        setUpgradedCost(0);
-    }
+this.exhaust = true;
+     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> myCardsList = new ArrayList<>();
@@ -37,5 +37,14 @@ public class CreativeMind extends AbstractEasyCard {
         atb(new SelectCardsAction(myCardsList, 1, cardStrings.EXTENDED_DESCRIPTION[0], (cards) -> {
             att(new MakeTempCardInHandAction(cards.get(0), 1, true));
         }));
+
     }
-} 
+        public void upgrade() {
+            if (!this.upgraded) {
+                this.upgradeName();
+                this.exhaust = false;
+                this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+                this.initializeDescription();
+            }
+        }
+    }

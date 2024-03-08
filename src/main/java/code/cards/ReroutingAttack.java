@@ -4,20 +4,21 @@ import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import code.actions.SwapCardsAction;
 import code.cards.abstractCards.AbstractSwappableCard;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import java.util.ArrayList;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
+
 @NoPools
 @NoCompendium
 public class ReroutingAttack extends AbstractSwappableCard {
@@ -29,8 +30,8 @@ public class ReroutingAttack extends AbstractSwappableCard {
     }
 
     public ReroutingAttack(AbstractSwappableCard linkedCard) {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
-        this.baseMagicNumber = 3;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, TEAL_COLOR);
+        this.baseDamage = 7;
         if (linkedCard == null) {
             this.setLinkedCard(new ReroutingBlock(this));
         } else {
@@ -55,17 +56,28 @@ public class ReroutingAttack extends AbstractSwappableCard {
             cardToDiscard.triggerOnManualDiscard(); // Triggers any effects related to discarding
         }
 
-        // This part of the effect plays regardless of whether a skill card was discarded
-        int enemyCount = (int) AbstractDungeon.getMonsters().monsters.stream().filter(monster -> !monster.isDeadOrEscaped()).count();
-        // Apply Vigor based on the number of enemies
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new VigorPower(p, enemyCount * this.baseMagicNumber), enemyCount * this.baseMagicNumber));
+        // Calculate the number of monsters
+        int monsterCount = (int) AbstractDungeon.getMonsters().monsters.stream().filter(monster -> !monster.isDeadOrEscaped()).count();
+
+        // Attack the targeted monster multiple times, dealing damage equal to the base damage
+        if (m != null && !m.isDeadOrEscaped()) {
+            for (int i = 0; i < monsterCount; i++) {
+                AbstractDungeon.actionManager.addToBottom(
+                        new DamageAction(
+                                m,
+                                new DamageInfo(p, this.damage, this.damageTypeForTurn),
+                                AbstractGameAction.AttackEffect.BLUNT_LIGHT
+                        )
+                );
+            }
+        }
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeMagicNumber(4);
+            upgradeDamage(2); // Increase damage by 2
             this.cardsToPreview.upgrade();
         }
     }

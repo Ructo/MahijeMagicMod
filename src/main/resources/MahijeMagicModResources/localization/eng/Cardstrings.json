@@ -99,8 +99,8 @@
   },
   "${ModID}:HyperStrike": {
     "NAME": "Hyper Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! card."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! a card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
   },
   "${ModID}:HyperVigilance": {
     "NAME": "Hyper Vigilance",
@@ -126,6 +126,21 @@
     "NAME": "Inertia:Block",
     "DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block.",
     "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block."
+  },
+  "${ModID}:Lasers": {
+    "NAME": "Lasers",
+    "DESCRIPTION": "Deal !D! to a random enemy !M! times. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! to a random enemy !M! times. NL Exhaust"
+  },
+  "${ModID}:LaserBarrage": {
+    "NAME": "Laser Barrage",
+    "DESCRIPTION": "Add !M! Lasers into your hand NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Add !M! Lasers into your hand NL Exhaust"
+  },
+  "${ModID}:LaserLightShow": {
+    "NAME": "Laser Light Show",
+    "DESCRIPTION": "Exhaust any number of cards and gain 1 Lasers per exhaust NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Exhaust any number of cards and gain 1 upgraded Lasers per exhaust NL Exhaust"
   },
   "${ModID}:InertiaVigor": {
     "NAME": "Inertia:Vigor",
@@ -166,8 +181,8 @@
   },
   "${ModID}:ReroutingAttack": {
     "NAME": "Rerouting:Attack",
-    "DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL ${ModID}:Discard 1 skill card at random.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !M! Vigor for each enemy in combat. NL ${ModID}:Discard 1 skill card at random."
+    "DESCRIPTION": "${ModID}:Swappable NL Gain !D! Damage for each enemy in combat. NL ${ModID}:Discard 1 skill card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Gain !D! Damage for each enemy in combat. NL ${ModID}:Discard 1 skill card at random."
   },
   "${ModID}:ReroutingBlock": {
     "NAME": "Rerouting:Block",

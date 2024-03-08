@@ -1,4 +1,4 @@
-package code.cards;
+package code.cards.tempcards;
 
 import code.actions.EasyXCostAction;
 import code.cards.AbstractEasyCard;

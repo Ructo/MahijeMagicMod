@@ -24,8 +24,8 @@ public class Hyperactivity extends AbstractEasyRelic {
     @Override
     public void onExhaust(AbstractCard card) {
         this.counter++;
-        if (this.counter >= 3) {
-            this.counter -= 3;
+        if (this.counter >= 4) {
+            this.counter -= 4;
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
         }
