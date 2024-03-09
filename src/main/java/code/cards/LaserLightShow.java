@@ -20,6 +20,7 @@ public class LaserLightShow extends AbstractEasyCard {
     public LaserLightShow() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.cardsToPreview = new Lasers();
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

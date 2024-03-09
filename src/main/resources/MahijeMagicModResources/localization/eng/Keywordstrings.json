@@ -8,11 +8,11 @@
     "DESCRIPTION": "TODO: Make your own epic keywords"
   },
   {
-  "PROPER_NAME": "Swappable",
+  "PROPER_NAME": "Flip",
   "NAMES": [
-  "swappable"
+  "flip"
 ],
-  "DESCRIPTION": "#yRight #yClick to swap the effect of this card."
+  "DESCRIPTION": "#yRight #yClick to flip this card to the alternative."
   },
   {
     "PROPER_NAME": "Charged",
@@ -27,6 +27,13 @@
       "discard"
     ],
     "DESCRIPTION": "Add a card to the Discard Pile"
+  },
+  {
+    "PROPER_NAME": "Lasers",
+    "NAMES": [
+      "lasers"
+    ],
+    "DESCRIPTION": "Lasers scale with Dexterity instead of Strength"
   },
   {
     "PROPER_NAME": "Ready Weapons",

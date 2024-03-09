@@ -9,7 +9,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import static code.ModFile.makeID;
 
 public class Refraction extends AbstractEasyCard {
@@ -19,29 +20,24 @@ public class Refraction extends AbstractEasyCard {
     public Refraction() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
         baseDamage = 2;
-        baseMagicNumber = 0;
+        baseMagicNumber = 0; // This will be dynamically set based on Dexterity and Lasers played
         this.rawDescription = cardStrings.DESCRIPTION;
         initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int lasersPlayed = 0;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-            if (c.cardID.equals(makeID("Lasers"))) {
-                lasersPlayed++;
-            }
-        }
+        int lasersPlayed = countLasersPlayed();
 
         if (lasersPlayed > 0) {
             AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.miscRng);
-            int totalDamage = lasersPlayed * this.damage;
-            this.baseMagicNumber = totalDamage;
-            this.magicNumber = this.baseMagicNumber;
-            this.isMagicNumberModified = true;
-            updateDescription(lasersPlayed); // Update the card's description
+            int dexterityBonus = getDexterityBonus(p);
+
+            // Update description to reflect current state
+            updateDescription(lasersPlayed, dexterityBonus);
+
             for (int i = 0; i < lasersPlayed; i++) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(randomMonster, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(randomMonster, new DamageInfo(p, baseDamage + dexterityBonus, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
     }
@@ -54,28 +50,36 @@ public class Refraction extends AbstractEasyCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
 
-    private void updateDescription(int lasersPlayed) {
-        int totalDamage = lasersPlayed * this.damage;
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription = this.rawDescription.replace("!D!", String.valueOf(this.damage));
-        this.rawDescription = this.rawDescription.replace("!M!", String.valueOf(totalDamage));
-        this.rawDescription = this.rawDescription.replace("!L!", String.valueOf(lasersPlayed));
+    private void updateDescription(int lasersPlayed, int dexterityBonus) {
+        int totalDamage = (baseDamage + dexterityBonus) * lasersPlayed;
+        this.rawDescription = cardStrings.DESCRIPTION
+                .replace("!D!", String.valueOf(baseDamage + dexterityBonus))
+                .replace("!M!", String.valueOf(totalDamage))
+                .replace("!L!", String.valueOf(lasersPlayed));
         initializeDescription();
     }
 
     @Override
     public void applyPowers() {
+        int lasersPlayed = countLasersPlayed();
+        int dexterityBonus = getDexterityBonus(AbstractDungeon.player);
+        updateDescription(lasersPlayed, dexterityBonus);
         super.applyPowers();
-        int lasersPlayed = 0;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-            if (c.cardID.equals(makeID("Lasers"))) {
-                lasersPlayed++;
-            }
-        }
-        updateDescription(lasersPlayed);
+    }
+
+    private int countLasersPlayed() {
+        return (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream()
+                .filter(c -> c.cardID.equals(makeID("Lasers")))
+                .count();
+    }
+
+    private int getDexterityBonus(AbstractPlayer player) {
+        AbstractPower dexterityPower = player.getPower(DexterityPower.POWER_ID);
+        return dexterityPower != null ? dexterityPower.amount : 0;
     }
 }

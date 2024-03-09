@@ -56,7 +56,6 @@ public class CreativeThoughts extends AbstractSwappableCard {
             upgradeName();
             upgradeMagicNumber(1);
             this.cardsToPreview.upgrade();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

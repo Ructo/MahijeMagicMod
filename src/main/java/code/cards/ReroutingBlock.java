@@ -26,6 +26,7 @@ public class ReroutingBlock extends AbstractSwappableCard {
     public ReroutingBlock(AbstractSwappableCard linkedCard) {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
         this.baseBlock = this.block = 7; // Adjust base block as needed
+        initializeDescription();
         if (linkedCard == null) {
             this.setLinkedCard(new ReroutingAttack(this));
         } else {

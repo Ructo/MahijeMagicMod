@@ -23,7 +23,7 @@ public class HyperBlock extends AbstractSwappableCard {
     }
 
     public HyperBlock(AbstractSwappableCard linkedCard) {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
         baseBlock = 9;
         baseMagicNumber = magicNumber = 1;
         initializeDescription();
