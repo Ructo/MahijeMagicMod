@@ -20,20 +20,20 @@ import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.getCardsMatchingPredicate;
 
-public class RacingThoughts extends AbstractSwappableCard {
-    public final static String ID = makeID("RacingThoughts");
+public class CreativeThoughts extends AbstractSwappableCard {
+    public final static String ID = makeID("CreativeThoughts");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public RacingThoughts() {
-        this(new CreativeThoughts(null));
+    public CreativeThoughts() {
+        this(new RacingThoughts(null));
     }
 
-    public RacingThoughts(AbstractSwappableCard linkedCard) {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, TEAL_COLOR);
+    public CreativeThoughts(AbstractSwappableCard linkedCard) {
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, TEAL_COLOR);
         ExhaustiveVariable.setBaseValue(this, 3);
-        baseMagicNumber = magicNumber = 2; // Draw 2 cards
+        baseMagicNumber = magicNumber = 2;
         if (linkedCard == null) {
-            this.setLinkedCard(new CreativeThoughts(this));
+            this.setLinkedCard(new RacingThoughts(this));
         } else {
             this.setLinkedCard(linkedCard);
         }
@@ -41,13 +41,13 @@ public class RacingThoughts extends AbstractSwappableCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
-        Collections.shuffle(eligibleCardsList); // Shuffle the list of eligible cards
-        AbstractCard randomCard = eligibleCardsList.get(0); // Select the first card from the shuffled list
-
-        addToBot(new DrawCardAction(p, magicNumber)); // Draw 2 cards
-        addToBot(new MakeTempCardInHandAction(randomCard)); // Add the random card to hand
-
+        addToBot(new DrawCardAction(p, 1));
+        for (int i = 0; i < magicNumber; i++) {
+            ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
+            Collections.shuffle(eligibleCardsList); // Shuffle the list of eligible cards
+            AbstractCard randomCard = eligibleCardsList.get(0); // Select the first card from the shuffled list
+            addToBot(new MakeTempCardInHandAction(randomCard));
+        }
     }
 
     @Override
@@ -71,6 +71,6 @@ public class RacingThoughts extends AbstractSwappableCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new RacingThoughts(null);
+        return new CreativeThoughts(null);
     }
 }

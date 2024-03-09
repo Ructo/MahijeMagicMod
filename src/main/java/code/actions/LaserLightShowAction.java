@@ -13,7 +13,7 @@ public class LaserLightShowAction extends AbstractGameAction {
     public LaserLightShowAction(boolean upgraded) {
         this.upgrade = upgraded;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = DEFAULT_DURATION; // Ensure duration is set correctly
+        this.duration = this.startDuration = DEFAULT_DURATION;
     }
 
     @Override
@@ -22,6 +22,10 @@ public class LaserLightShowAction extends AbstractGameAction {
             if (!AbstractDungeon.player.hand.isEmpty()) {
                 AbstractDungeon.handCardSelectScreen.open("Select cards to exhaust.", AbstractDungeon.player.hand.size(), true, true, false, false, true);
                 this.tickDuration();
+                return;
+            } else {
+                // If the hand is empty, skip card selection and proceed
+                this.isDone = true;
                 return;
             }
         }

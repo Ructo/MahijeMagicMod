@@ -25,6 +25,10 @@
       "Choose a card to add into your hand with Exhaust and Ethereal."
     ]
   },
+  "${ModID}:CreativeThoughts": {
+    "NAME": "Creative Thoughts",
+    "DESCRIPTION": "${ModID}:Swappable NL Draw 1 card. NL Find !M! random 0 cost cards from any class. NL Exhaustive !stslib:ex!"
+  },
   "${ModID}:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block. NL Exhaustive !stslib:ex!"
@@ -68,6 +72,11 @@
     "DESCRIPTION": "Just start swinging! Deal !D! damage !M! times. NL Exhaust",
     "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
   },
+  "${ModID}:HyperBlock": {
+    "NAME": "Hyper Block",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! a card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards."
+  },
   "${ModID}:HyperElectroBeam": {
     "NAME": "Hyper Electro Beam",
     "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times to all enemies. NL NL Remove ${ModID}:Readied",
@@ -99,7 +108,7 @@
   },
   "${ModID}:HyperStrike": {
     "NAME": "Hyper Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! a card.",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! cards."
   },
   "${ModID}:HyperVigilance": {
@@ -109,8 +118,8 @@
   },
   "${ModID}:HyperVigilanceRepel": {
     "NAME": "Hyper Vigilance:Repel",
-    "DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 1 Artifact. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 2 Artifact. NL Exhaust"
+    "DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 1 Artifact. NL Exhaust both this card and a random card.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Swappable NL Prepare for anything! NL Gain 1 Artifact. NL Exhaust both this card and a chosen card."
   },
   "${ModID}:HyperVigilanceWall": {
     "NAME": "Hyper Vigilance:Wall",
@@ -170,9 +179,18 @@
     "DESCRIPTION": "Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaustive !stslib:ex!",
     "UPGRADE_DESCRIPTION": "Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaustive !stslib:ex!"
   },
+  "${ModID}:Pong": {
+    "NAME": "Pong",
+    "DESCRIPTION": "Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaustive !stslib:ex!",
+    "UPGRADE_DESCRIPTION": "Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaustive !stslib:ex!"
+  },
   "${ModID}:RacingThoughts": {
     "NAME": "Racing Thoughts",
-    "DESCRIPTION": "Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaustive !stslib:ex!"
+    "DESCRIPTION": "${ModID}:Swappable NL Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaustive !stslib:ex!"
+  },
+  "${ModID}:Refraction": {
+    "NAME": "Refraction",
+    "DESCRIPTION": "Deal !D! damage per Lasers card played this combat to random enemies. NL This will deal !D!x!L! (!M!) damage."
   },
   "${ModID}:ReadyWeapons": {
     "NAME": "Ready Weapons",

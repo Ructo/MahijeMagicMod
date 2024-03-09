@@ -53,6 +53,8 @@ public class HyperFocusStrength extends AbstractSwappableCard {
             upgradeName();
             upgradeBaseCost(0);
             this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 

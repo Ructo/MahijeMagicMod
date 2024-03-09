@@ -19,7 +19,7 @@ public class Lasers extends AbstractEasyCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public Lasers() {
-        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
         baseDamage = 2;
         baseMagicNumber = magicNumber = 2;
         this.exhaust = true;

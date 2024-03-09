@@ -57,7 +57,9 @@ public class ReroutingBlock extends AbstractSwappableCard {
         if (!this.upgraded) {
             upgradeName();
             this.cardsToPreview.upgrade();
-            upgradeBlock(9); // Upgrade block as needed
+            upgradeBlock(2); // Upgrade block as needed
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 

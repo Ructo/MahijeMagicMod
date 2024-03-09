@@ -79,6 +79,8 @@ public class ReroutingAttack extends AbstractSwappableCard {
             upgradeName();
             upgradeDamage(2); // Increase damage by 2
             this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 

@@ -20,6 +20,7 @@ public class LaserBarrage extends AbstractEasyCard {
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         this.cardsToPreview = new Lasers();
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

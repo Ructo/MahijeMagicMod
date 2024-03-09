@@ -23,7 +23,7 @@ public class HyperVigilanceWall extends AbstractSwappableCard {
     }
     public HyperVigilanceWall(AbstractSwappableCard linkedCard) {
         super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
-        baseBlock = 50;
+        baseBlock = 40;
         this.exhaust = true;
         initializeDescription();
         if (linkedCard == null) {
