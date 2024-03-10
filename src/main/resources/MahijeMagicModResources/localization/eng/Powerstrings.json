@@ -35,10 +35,33 @@
       "Charged Up, gain 3 Void at the end of turn. Use Ready Weapons to negate."
     ]
   },
+  "${ModID}:Feeble": {
+    "NAME": "Feeble",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, ",
+      " deals #b5% less damage from this turn.",
+      " (Deals #b",
+      "% less damage)"
+    ]
+  },
   "${ModID}:ReadyWeaponsPower": {
     "NAME": "Readied",
     "DESCRIPTIONS": [
       "Weapons Ready, gain 6 Void at the end of next turn. Use Hyper Electro Beam to negate."
+    ]
+  },
+  "${ModID}:RefractedPower": {
+    "NAME": "Refracted",
+    "DESCRIPTIONS": [
+      "Every #yLasers card played maintains Blur and adds #b",
+      " Thorns."
+    ]
+  },
+  "${ModID}:RefractingPower": {
+    "NAME": "Refracting",
+    "DESCRIPTIONS": [
+      "Every #yLasers card played causes the enemy to take #b",
+      " damage."
     ]
   },
   "${ModID}:ScalingBlockPower": {

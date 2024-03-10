@@ -4,9 +4,8 @@
 
 package code.actions;
 
-import code.cards.abstractCards.AbstractSwappableCard;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.common.TransformCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,11 +13,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.Iterator;
 
-public class SwapCardsAction extends AbstractGameAction {
+public class FlipCardsAction extends AbstractGameAction {
     private AbstractCard toReplace;
     private AbstractCard newCard;
 
-    public SwapCardsAction(AbstractCard toReplace, AbstractCard newCard) {
+    public FlipCardsAction(AbstractCard toReplace, AbstractCard newCard) {
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_MED;
         this.toReplace = toReplace;
@@ -39,9 +38,9 @@ public class SwapCardsAction extends AbstractGameAction {
         }
 
         if (found && this.toReplace != null) {
-            if (this.toReplace instanceof AbstractSwappableCard && this.newCard instanceof AbstractSwappableCard) {
-                ((AbstractSwappableCard)this.toReplace).onSwapOut();
-                ((AbstractSwappableCard)this.newCard).onSwapIn();
+            if (this.toReplace instanceof AbstractFlipCard && this.newCard instanceof AbstractFlipCard) {
+                ((AbstractFlipCard)this.toReplace).onSwapOut();
+                ((AbstractFlipCard)this.newCard).onSwapIn();
             }
 
             this.newCard.cardsToPreview = this.toReplace.makeStatEquivalentCopy();

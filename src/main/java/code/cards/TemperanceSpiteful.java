@@ -1,29 +1,26 @@
 package code.cards;
 
-import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 
 
-public class TemperanceSpiteful extends AbstractSwappableCard {
+public class TemperanceSpiteful extends AbstractFlipCard {
     public static final String ID = makeID("TemperanceSpiteful");
     public TemperanceSpiteful() {
         this(new TemperancePatient(null));
     }
-    public TemperanceSpiteful(AbstractSwappableCard linkedCard) {
+    public TemperanceSpiteful(AbstractFlipCard linkedCard) {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
         this.baseDamage = this.damage = 3;
         this.exhaust = true;
@@ -67,7 +64,7 @@ public class TemperanceSpiteful extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

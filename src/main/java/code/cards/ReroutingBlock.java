@@ -1,8 +1,7 @@
 package code.cards;
 
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,14 +15,14 @@ import java.util.ArrayList;
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 
-public class ReroutingBlock extends AbstractSwappableCard {
+public class ReroutingBlock extends AbstractFlipCard {
     public static final String ID = makeID("ReroutingBlock");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public ReroutingBlock() {
         this(new ReroutingAttack(null));
     }
 
-    public ReroutingBlock(AbstractSwappableCard linkedCard) {
+    public ReroutingBlock(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
         this.baseBlock = this.block = 7; // Adjust base block as needed
         initializeDescription();
@@ -68,7 +67,7 @@ public class ReroutingBlock extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

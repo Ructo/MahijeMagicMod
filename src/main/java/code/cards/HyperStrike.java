@@ -1,29 +1,20 @@
 package code.cards;
 
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 
-public class HyperStrike extends AbstractSwappableCard {
+public class HyperStrike extends AbstractFlipCard {
     public final static String ID = makeID("HyperStrike");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -31,7 +22,7 @@ public class HyperStrike extends AbstractSwappableCard {
         this(new HyperBlock(null));
     }
 
-    public HyperStrike(AbstractSwappableCard linkedCard) {
+    public HyperStrike(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, TEAL_COLOR);
         baseDamage = 9;
         baseMagicNumber = magicNumber = 1;
@@ -66,7 +57,7 @@ public class HyperStrike extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

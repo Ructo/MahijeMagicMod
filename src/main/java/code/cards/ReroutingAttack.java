@@ -2,8 +2,8 @@ package code.cards;
 
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,7 +21,7 @@ import static code.ModFile.makeID;
 
 @NoPools
 @NoCompendium
-public class ReroutingAttack extends AbstractSwappableCard {
+public class ReroutingAttack extends AbstractFlipCard {
     public static final String ID = makeID("ReroutingAttack");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -29,7 +29,7 @@ public class ReroutingAttack extends AbstractSwappableCard {
         this(new ReroutingBlock(null));
     }
 
-    public ReroutingAttack(AbstractSwappableCard linkedCard) {
+    public ReroutingAttack(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, TEAL_COLOR);
         this.baseDamage = 7;
         if (linkedCard == null) {
@@ -88,7 +88,7 @@ public class ReroutingAttack extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

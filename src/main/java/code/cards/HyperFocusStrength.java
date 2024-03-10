@@ -1,7 +1,6 @@
 package code.cards;
-import code.cards.HyperFocusDexterity;
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import code.powers.StrFixation;
 import code.powers.DexFixation;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -15,16 +14,15 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 import static code.CharacterFile.Enums.TEAL_COLOR;
-import static code.ModFile.makeID;
 
-public class HyperFocusStrength extends AbstractSwappableCard {
+public class HyperFocusStrength extends AbstractFlipCard {
     public final static String ID = makeID("HyperFocusStrength");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public HyperFocusStrength() {
         this(new HyperFocusDexterity(null));
     }
-    public HyperFocusStrength(AbstractSwappableCard linkedCard) {
+    public HyperFocusStrength(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.POWER, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
         magicNumber = baseMagicNumber = 3;
         if (linkedCard == null) {
@@ -53,8 +51,6 @@ public class HyperFocusStrength extends AbstractSwappableCard {
             upgradeName();
             upgradeBaseCost(0);
             this.cardsToPreview.upgrade();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            initializeDescription();
         }
     }
 
@@ -62,7 +58,7 @@ public class HyperFocusStrength extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
     @Override

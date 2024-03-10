@@ -16,7 +16,7 @@ public class ImpulsePull extends AbstractEasyCard {
 
     public ImpulsePull() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = 5;
+        this.magicNumber = this.baseMagicNumber = 8;
         this.exhaust = true;
     }
 
@@ -31,7 +31,6 @@ public class ImpulsePull extends AbstractEasyCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBaseCost(0);
-            this.upgradeMagicNumber(3); // Upgrades the card so that it draws 8 cards instead of 5.
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

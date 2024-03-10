@@ -5,20 +5,20 @@
 
 package code.cards.abstractCards;
 
-import code.actions.SwapCardsAction;
+import code.actions.FlipCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-public abstract class AbstractSwappableCard extends AbstractClickableCard {
+public abstract class AbstractFlipCard extends AbstractClickableCard {
     private AbstractGameAction action;
     private static boolean looping;
 
-    public AbstractSwappableCard(String id, int cost, AbstractCard.CardType type, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target, AbstractCard.CardColor color) {
+    public AbstractFlipCard(String id, int cost, AbstractCard.CardType type, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target, AbstractCard.CardColor color) {
         super(id, cost, type, rarity, target, color);
     }
 
-    protected void setLinkedCard(AbstractSwappableCard linkedCard) {
+    protected void setLinkedCard(AbstractFlipCard linkedCard) {
         if (linkedCard != null) {
             this.cardsToPreview = linkedCard;
             this.cardsToPreview.cardsToPreview = this;
@@ -44,9 +44,9 @@ public abstract class AbstractSwappableCard extends AbstractClickableCard {
     }
 
     public void onRightClick() {
-        if (this.canSwap() && this.action == null && this.cardsToPreview != null) {
+        if (this.canFlip() && this.action == null && this.cardsToPreview != null) {
             CardCrawlGame.sound.play("CARD_SELECT", 0.1F);
-            this.action = new SwapCardsAction(this, this.cardsToPreview);
+            this.action = new FlipCardsAction(this, this.cardsToPreview);
             this.addToTop(this.action);
         }
 
@@ -60,7 +60,7 @@ public abstract class AbstractSwappableCard extends AbstractClickableCard {
 
     }
 
-    public boolean canSwap() {
+    public boolean canFlip() {
         return true;
     }
 

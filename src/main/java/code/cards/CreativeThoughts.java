@@ -1,9 +1,8 @@
 package code.cards;
 
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,8 +18,9 @@ import java.util.Collections;
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.getCardsMatchingPredicate;
+@NoPools
 
-public class CreativeThoughts extends AbstractSwappableCard {
+public class CreativeThoughts extends AbstractFlipCard {
     public final static String ID = makeID("CreativeThoughts");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -28,9 +28,9 @@ public class CreativeThoughts extends AbstractSwappableCard {
         this(new RacingThoughts(null));
     }
 
-    public CreativeThoughts(AbstractSwappableCard linkedCard) {
+    public CreativeThoughts(AbstractFlipCard linkedCard) {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, TEAL_COLOR);
-        ExhaustiveVariable.setBaseValue(this, 3);
+        this.exhaust = true;
         baseMagicNumber = magicNumber = 2;
         if (linkedCard == null) {
             this.setLinkedCard(new RacingThoughts(this));
@@ -64,7 +64,7 @@ public class CreativeThoughts extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

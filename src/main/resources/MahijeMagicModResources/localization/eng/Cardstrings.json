@@ -33,8 +33,8 @@
   },
   "${ModID}:CreativeThoughts": {
     "NAME": "Creative Thoughts",
-    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card. NL Find !M! random 0 cost cards from any class. NL Exhaustive !stslib:ex!",
-    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card. NL Find !M! random 0 cost cards from any class. NL Exhaustive !stslib:ex!"
+    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card. NL Find !M! random 0 cost cards from any class. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card. NL Find !M! random 0 cost cards from any class. NL Exhaust"
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
@@ -69,10 +69,15 @@
     "DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage. NL Exhaust",
     "UPGRADE_DESCRIPTION": "Deal damage equal to Exhaust pile (!D!) damage."
   },
-  "${ModID}:Exploit": {
-    "NAME": "Exploit",
-    "DESCRIPTION": "Apply 1 Weak. NL Apply 1 Slow. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Apply 1 Vulnerable. NL Apply 2 Weak. NL Apply 1 Slow. NL Exhaust"
+  "${ModID}:ExploitPhish": {
+    "NAME": "Exploit:Phish",
+    "DESCRIPTION": "${ModID}:Flip NL Apply 1 Weak. NL Apply 1 ${ModID}:Slow. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Apply 2 Weak. NL Apply 1 ${ModID}:Slow. NL Exhaust"
+  },
+  "${ModID}:ExploitVirus": {
+    "NAME": "Exploit:Virus",
+    "DESCRIPTION": "${ModID}:Flip NL Apply 1 Vulnerable. NL Apply 1 ${ModID}:Feeble. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Apply 2 Vulnerable. NL Apply 1 ${ModID}:Feeble. NL Exhaust"
   },
   "${ModID}:Flail": {
     "NAME": "Flail",
@@ -86,8 +91,8 @@
   },
   "${ModID}:HyperElectroBeam": {
     "NAME": "Hyper Electro Beam",
-    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times to all enemies. NL NL Remove ${ModID}:Readied",
-    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!}+1 times to all enemies. NL Remove ${ModID}:Readied"
+    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times to all enemies. NL NL Remove ${ModID}:Readied NL Purge",
+    "UPGRADE_DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!}+1 times to all enemies. NL Remove ${ModID}:Readied NL Purge"
   },
   "${ModID}:HyperFocus": {
     "NAME": "Hyper Focus",
@@ -135,28 +140,13 @@
   },
   "${ModID}:ImpulsePull": {
     "NAME": "Impulse Pull",
-    "DESCRIPTION": "Draw 5 cards. NL Gain 1 Vulnerable.",
+    "DESCRIPTION": "Draw 8 cards. NL Gain 1 Vulnerable.",
     "UPGRADE_DESCRIPTION": "Draw 8 cards. NL Gain 1 Vulnerable."
   },
   "${ModID}:InertiaBlock": {
     "NAME": "Inertia:Block",
     "DESCRIPTION": "${ModID}:Flip NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block.",
     "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Apply !M! Scaling Block. NL Each subsequent Skill gains +!M! additional Block."
-  },
-  "${ModID}:Lasers": {
-    "NAME": "Lasers",
-    "DESCRIPTION": "Deal !D! to a random enemy !M! times. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Deal !D! to a random enemy !M! times. NL Exhaust"
-  },
-  "${ModID}:LaserBarrage": {
-    "NAME": "Laser Barrage",
-    "DESCRIPTION": "Add !M! Lasers into your hand NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Add !M! Lasers into your hand NL Exhaust"
-  },
-  "${ModID}:LaserLightShow": {
-    "NAME": "Laser Light Show",
-    "DESCRIPTION": "Exhaust any number of cards and gain 1 Lasers per exhaust NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Exhaust any number of cards and gain 1 upgraded Lasers per exhaust NL Exhaust"
   },
   "${ModID}:InertiaVigor": {
     "NAME": "Inertia:Vigor",
@@ -173,6 +163,31 @@
       " #yBlock."
     ]
   },
+  "${ModID}:Lasers": {
+    "NAME": "Lasers",
+    "DESCRIPTION": "${ModID}:Lasers NL Deal !D! to a random enemy !M! times. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Lasers NL Deal !D! to a random enemy !M! times. NL Exhaust"
+  },
+  "${ModID}:LaserArc": {
+    "NAME": "Laser Arc",
+    "DESCRIPTION": "${ModID}:Lasers NL Deal !D! Damage. NL Apply !M! Vulnerable NL Exhaust a card.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Lasers NL Deal !D! Damage. NL Apply !M! Vulnerable NL Exhaust a card."
+  },
+  "${ModID}:LaserBarrage": {
+    "NAME": "Laser Barrage",
+    "DESCRIPTION": "Add !M! Lasers into your hand NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Add !M! Lasers into your hand NL Exhaust"
+  },
+  "${ModID}:LaserEyes": {
+    "NAME": "Laser Eyes",
+    "DESCRIPTION": "${ModID}:Lasers NL Deal !D! Damage twice NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Lasers NL Deal !D! twice Damage NL Exhaust"
+  },
+  "${ModID}:LaserLightShow": {
+    "NAME": "Laser Light Show",
+    "DESCRIPTION": "Exhaust any number of cards and gain 1 Lasers per exhaust NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Exhaust any number of cards and gain 1 upgraded Lasers per exhaust NL Exhaust"
+  },
   "${ModID}:MultiCardPreviewAndDrawCallback": {
     "NAME": "Previews and Callbacks",
     "DESCRIPTION": "{@@}Shuffle *Smite{!Upgrades!|>0=+} and *Safety{!Upgrades!|>0=+} into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies.",
@@ -180,33 +195,56 @@
   },
   "${ModID}:Multitask": {
     "NAME": "Multitask",
-    "DESCRIPTION": "Play the last card you played and play the top card of your draw pile. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Play the last card you played and play the top card of your draw pile. NL Exhaust"
+    "DESCRIPTION": "Play the last card you played. NL NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Play the last card you played. NL Play the top card of your draw pile. NL Exhaust"
   },
   "${ModID}:Ping": {
     "NAME": "Ping",
-    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaustive !stslib:ex!",
-    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaustive !stslib:ex!"
+    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaust"
   },
   "${ModID}:Pong": {
     "NAME": "Pong",
-    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaustive !stslib:ex!",
-    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaustive !stslib:ex!"
+    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaust"
   },
   "${ModID}:RacingThoughts": {
     "NAME": "Racing Thoughts",
-    "DESCRIPTION": "${ModID}:Flip NL Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaustive !stslib:ex!",
-    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaustive !stslib:ex!"
+    "DESCRIPTION": "${ModID}:Flip NL Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw !M! cards NL Find a random 0 cost card from any class. NL Exhaust"
+  },
+  "${ModID}:RefractedShield": {
+    "NAME": "Refracted Shield",
+    "DESCRIPTION": "Every ${ModID}:Lasers card played maintains Blur and adds 1 Thorns.",
+    "UPGRADE_DESCRIPTION": "Every ${ModID}:Lasers card played maintains Blur and adds 1 Thorns.",
+    "EXTENDED_DESCRIPTION": [
+      "Every Lasers card played maintains Blur and adds ",
+      " damage."
+    ]
+  },
+  "${ModID}:RefractedShieldBig": {
+    "NAME": "Refracted Shield",
+    "DESCRIPTION": "${ModID}:Lasers NL Gain !B! Block equal to half of ${ModID}:Lasers played this combat. NL (!L!) ${ModID}:Lasers NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Lasers NL Gain !B! Block equal to half of ${ModID}:Lasers played this combat. NL (!L!) ${ModID}:Lasers NL Exhaust"
+  },
+  "${ModID}:RefractionScale": {
+    "NAME": "Refraction",
+    "DESCRIPTION": "${ModID}:Lasers NL Deal !D! to random targets per ${ModID}:Lasers played this combat. NL (!L!) ${ModID}:Lasers NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Lasers NL Deal !D! to random targets per ${ModID}:Lasers played this combat. NL (!L!) ${ModID}:Lasers NL Exhaust"
   },
   "${ModID}:Refraction": {
     "NAME": "Refraction",
-    "DESCRIPTION": "Deal !D! to random targets per ${ModID}:Lasers played this combat. NL (!L!) ${ModID}:Lasers NL Exhaust",
-    "UPGRADE_DESCRIPTION": "You have used !L! ${ModID}:Lasers. NL Deal !D! per ${ModID}:Lasers card played this combat. NL !M! Damage."
+    "DESCRIPTION": "Deal !M! to a random target when a ${ModID}:Lasers card is played.",
+    "UPGRADE_DESCRIPTION": "Deal !M! to a random target when a ${ModID}:Lasers card is played.",
+    "EXTENDED_DESCRIPTION": [
+      "Every Lasers card played causes the enemy to take ",
+     " damage."
+    ]
   },
   "${ModID}:ReadyWeapons": {
     "NAME": "Ready Weapons",
-    "DESCRIPTION": "Gain 5 Vigor and 5 Energy. NL Add Hyper Electro Beam to top of draw pile. NL Replace ${ModID}:Charged with ${ModID}:Readied",
-    "UPGRADE_DESCRIPTION": "Gain 5 Vigor and 5 Energy. NL Add Hyper Electro Beam to top of draw pile. NL Replace ${ModID}:Charged with ${ModID}:Readied"
+    "DESCRIPTION": "Gain 5 Vigor and 5 Energy. NL Add Hyper Electro Beam to top of draw pile. NL Replace ${ModID}:Charged with ${ModID}:Readied NL Purge",
+    "UPGRADE_DESCRIPTION": "Gain 5 Vigor and 5 Energy. NL Add Hyper Electro Beam to top of draw pile. NL Replace ${ModID}:Charged with ${ModID}:Readied NL Purge"
   },
   "${ModID}:ReroutingAttack": {
     "NAME": "Rerouting:Attack",
@@ -253,7 +291,7 @@
   "${ModID}:TemperanceSpiteful": {
     "NAME": "Temperance:Spiteful",
     "DESCRIPTION": "${ModID}:Flip NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted. NL NL"
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Exhaust all skills in hand. NL Apply Strength and Attack All Thrice for !D! per Exhausted."
   },
   "${ModID}:Traceroute": {
     "NAME": "Traceroute",
@@ -266,6 +304,6 @@
   },
   "${ModID}:ZeroPointOverdrive": {
     "NAME": "Zero Point Overdrive",
-    "DESCRIPTION": "Can only be played if your hand, discard pile, or draw pile are empty. NL Deal !D! damage to ALL."
+    "DESCRIPTION": "Can only be played if your hand, discard pile, or draw pile are empty. NL Deal !D! damage to ALL enemies."
   }
 }

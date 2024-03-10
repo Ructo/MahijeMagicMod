@@ -22,7 +22,7 @@ public class CreativeMind extends AbstractEasyCard {
 
     public CreativeMind() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-this.exhaust = true;
+        this.exhaust = true;
      }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

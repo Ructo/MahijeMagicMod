@@ -16,11 +16,12 @@ public class LaserBarrage extends AbstractEasyCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public LaserBarrage() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         this.cardsToPreview = new Lasers();
         this.exhaust = true;
+
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,6 +32,7 @@ public class LaserBarrage extends AbstractEasyCard {
         if (!this.upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
+            this.cardsToPreview.upgrade();
         }
     }
 

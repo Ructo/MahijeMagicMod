@@ -1,8 +1,8 @@
 package code.cards;
 
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,18 +15,19 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
+@NoPools
 
-public class Pong extends AbstractSwappableCard {
+public class Pong extends AbstractFlipCard {
     public final static String ID = makeID("Pong");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public Pong() {
         this(new Ping(null));
     }
 
-    public Pong(AbstractSwappableCard linkedCard) {
+    public Pong(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, TEAL_COLOR);
         this.magicNumber = this.baseMagicNumber = 1; // Used for the number of Vulnerable stacks to apply
-        ExhaustiveVariable.setBaseValue(this, 2);
+        this.exhaust = true;
         if (linkedCard == null) {
             this.setLinkedCard(new Ping(this));
         } else {
@@ -62,7 +63,7 @@ public class Pong extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

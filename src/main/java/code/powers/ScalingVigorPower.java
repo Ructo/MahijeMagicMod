@@ -14,7 +14,7 @@ public class ScalingVigorPower extends AbstractEasyPower {
     public static final String POWER_ID = makeID("ScalingVigorPower");
     public static final String NAME = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).NAME;
     public static final String[] DESCRIPTIONS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID).DESCRIPTIONS;
-    private int vigorIncrement = 2; // Starting Vigor bonus
+    private int vigorIncrement = 1; // Starting Vigor bonus
 
     public ScalingVigorPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
@@ -30,7 +30,7 @@ public class ScalingVigorPower extends AbstractEasyPower {
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK) {
             AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.ApplyPowerAction(owner, owner, new VigorPower(owner, vigorIncrement), vigorIncrement));
-            vigorIncrement += 2; // Increase Vigor for the next Attack
+            vigorIncrement += 1; // Increase Vigor for the next Attack
         }
     }
 

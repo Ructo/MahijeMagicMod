@@ -1,31 +1,28 @@
 package code.cards;
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
-import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
-import code.cards.InertiaBlock;
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.powers.ScalingVigorPower;
 import code.powers.ScalingBlockPower;
-import code.cards.AbstractEasyCard;
+
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 @NoPools
-@NoCompendium
-public class InertiaBlock extends AbstractSwappableCard {
+
+public class InertiaBlock extends AbstractFlipCard {
     public static final String ID = makeID("InertiaBlock");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public InertiaBlock() {
         this(new InertiaVigor(null));
     }
-    public InertiaBlock(AbstractSwappableCard linkedCard) {
+    public InertiaBlock(AbstractFlipCard linkedCard) {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
@@ -54,7 +51,7 @@ public class InertiaBlock extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

@@ -46,8 +46,7 @@ public class Concentration extends AbstractEasyCard {
 
     public void upp() {
         upgradeMagicNumber(1);
-        upgradeSecondMagic(0);
-        upgradeBaseCost(0);
+        upgradeSecondMagic(1);
         this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
 

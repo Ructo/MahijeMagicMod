@@ -9,6 +9,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
@@ -60,6 +61,7 @@ public class ModFile implements
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
     private static final String CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
     private static final String CHARSELECT_PORTRAIT = makeImagePath("charSelect/charBG.png");
+
 
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,

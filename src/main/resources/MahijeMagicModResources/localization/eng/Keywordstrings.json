@@ -15,6 +15,20 @@
   "DESCRIPTION": "#yRight #yClick to flip this card to the alternative."
   },
   {
+    "PROPER_NAME": "Feeble",
+    "NAMES": [
+      "feeble"
+    ],
+    "DESCRIPTION": "Whenever you play a card, the enemy deals 5% less damage from attacks this turn."
+  },
+  {
+    "PROPER_NAME": "Slow",
+    "NAMES": [
+      "slow"
+    ],
+    "DESCRIPTION": "Whenever you play a card, the enemy receives 10% more damage from attacks this turn."
+  },
+  {
     "PROPER_NAME": "Charged",
     "NAMES": [
       "charged"

@@ -1,9 +1,7 @@
 package code.cards;
 
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +18,7 @@ import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.getCardsMatchingPredicate;
 
-public class RacingThoughts extends AbstractSwappableCard {
+public class RacingThoughts extends AbstractFlipCard {
     public final static String ID = makeID("RacingThoughts");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -28,9 +26,9 @@ public class RacingThoughts extends AbstractSwappableCard {
         this(new CreativeThoughts(null));
     }
 
-    public RacingThoughts(AbstractSwappableCard linkedCard) {
+    public RacingThoughts(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, TEAL_COLOR);
-        ExhaustiveVariable.setBaseValue(this, 3);
+        this.exhaust = true;
         baseMagicNumber = magicNumber = 2; // Draw 2 cards
         if (linkedCard == null) {
             this.setLinkedCard(new CreativeThoughts(this));
@@ -65,7 +63,7 @@ public class RacingThoughts extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 

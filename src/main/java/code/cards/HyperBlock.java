@@ -1,8 +1,8 @@
 package code.cards;
 
-import code.actions.SwapCardsAction;
-import code.cards.abstractCards.AbstractSwappableCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import code.actions.FlipCardsAction;
+import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
-
-public class HyperBlock extends AbstractSwappableCard {
+@NoPools
+public class HyperBlock extends AbstractFlipCard {
     public final static String ID = makeID("HyperBlock");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -22,9 +22,9 @@ public class HyperBlock extends AbstractSwappableCard {
         this(new HyperStrike(null));
     }
 
-    public HyperBlock(AbstractSwappableCard linkedCard) {
+    public HyperBlock(AbstractFlipCard linkedCard) {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, TEAL_COLOR);
-        baseBlock = 9;
+        baseBlock = 5;
         baseMagicNumber = magicNumber = 1;
         initializeDescription();
         if (linkedCard == null) {
@@ -44,7 +44,7 @@ public class HyperBlock extends AbstractSwappableCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeBlock(1);
+            upgradeBlock(3);
             upgradeMagicNumber(1);
             this.cardsToPreview.upgrade();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
@@ -56,7 +56,7 @@ public class HyperBlock extends AbstractSwappableCard {
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
             AbstractCard newCard = this.cardsToPreview.makeStatEquivalentCopy();
-            AbstractDungeon.actionManager.addToBottom(new SwapCardsAction(this, newCard));
+            AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
 
