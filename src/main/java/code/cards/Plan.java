@@ -1,45 +1,43 @@
 package code.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import code.actions.FlipCardsAction;
 import code.cards.abstractCards.AbstractFlipCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.FeeblePower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
-
-public class ExploitVirus extends AbstractFlipCard {
-    public static final String ID = makeID("ExploitVirus");
+@NoPools
+public class Plan extends AbstractFlipCard {
+    public final static String ID = makeID("Plan");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public ExploitVirus() {
-        this(new ExploitPhish(null));
+
+    public Plan() {
+        this(new Dream(null));
     }
-    public ExploitVirus(AbstractFlipCard linkedCard) {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, TEAL_COLOR);
-        this.magicNumber = this.baseMagicNumber = 1;
-        this.exhaust = true;
+
+    public Plan(AbstractFlipCard linkedCard) {
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
+        baseMagicNumber = magicNumber = 3;
+        initializeDescription();
         if (linkedCard == null) {
-            this.setLinkedCard(new ExploitPhish(this));
+            this.setLinkedCard(new Dream(this));
         } else {
             this.setLinkedCard(linkedCard);
         }
     }
 
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
-        // Apply 1 Feeble
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new FeeblePower(m, 0), 1));
-
-
+        addToBot(new DrawCardAction(p, magicNumber));
     }
+
 
     @Override
     public void upgrade() {
@@ -48,10 +46,10 @@ public class ExploitVirus extends AbstractFlipCard {
             upgradeMagicNumber(1);
             this.cardsToPreview.upgrade();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-
+            initializeDescription();
         }
     }
+
     @Override
     public void onRightClick() {
         if (AbstractDungeon.player != null && !AbstractDungeon.isScreenUp) {
@@ -59,8 +57,9 @@ public class ExploitVirus extends AbstractFlipCard {
             AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
+
     @Override
     public AbstractCard makeCopy() {
-        return new ExploitVirus();
+        return new Plan(null);
     }
 }

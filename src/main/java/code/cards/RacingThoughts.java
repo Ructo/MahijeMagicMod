@@ -1,5 +1,8 @@
 package code.cards;
 
+import basemod.cardmods.EtherealMod;
+import basemod.cardmods.ExhaustMod;
+import basemod.helpers.CardModifierManager;
 import code.actions.FlipCardsAction;
 import code.cards.abstractCards.AbstractFlipCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -39,15 +42,20 @@ public class RacingThoughts extends AbstractFlipCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
-        Collections.shuffle(eligibleCardsList); // Shuffle the list of eligible cards
-        AbstractCard randomCard = eligibleCardsList.get(0); // Select the first card from the shuffled list
-
         addToBot(new DrawCardAction(p, magicNumber)); // Draw 2 cards
-        addToBot(new MakeTempCardInHandAction(randomCard)); // Add the random card to hand
 
+        ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
+        if (!eligibleCardsList.isEmpty()) { // Ensure there is at least one card to select
+            Collections.shuffle(eligibleCardsList); // Shuffle the list of eligible cards
+            AbstractCard randomCard = eligibleCardsList.get(0).makeStatEquivalentCopy(); // Create a copy of the first card
+
+            // Add Ethereal and Exhaust modifiers to the randomCard
+            CardModifierManager.addModifier(randomCard, new EtherealMod());
+            CardModifierManager.addModifier(randomCard, new ExhaustMod());
+
+            addToBot(new MakeTempCardInHandAction(randomCard, 1, true)); // Add the modified random card to hand
+        }
     }
-
     @Override
     public void upgrade() {
         if (!this.upgraded) {

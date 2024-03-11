@@ -75,8 +75,8 @@
   "${ModID}:SupertasterPower": {
     "NAME": "Supertaster",
     "DESCRIPTIONS": [
-      "The first buff and debuff each turn is increased by 1"
+      "Increase the next buff by ",
+      "Increase the next debuff by "
     ]
   }
 }
-

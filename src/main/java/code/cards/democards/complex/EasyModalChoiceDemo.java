@@ -1,5 +1,7 @@
 package code.cards.democards.complex;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,7 +15,8 @@ import java.util.ArrayList;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
-
+@NoPools
+@NoCompendium
 public class EasyModalChoiceDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyModalChoiceDemo.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 

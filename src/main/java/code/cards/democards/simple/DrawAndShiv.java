@@ -1,5 +1,7 @@
 package code.cards.democards.simple;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,7 +10,8 @@ import code.cards.AbstractEasyCard;
 
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
-
+@NoPools
+@NoCompendium
 public class DrawAndShiv extends AbstractEasyCard {
     public final static String ID = makeID(DrawAndShiv.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 

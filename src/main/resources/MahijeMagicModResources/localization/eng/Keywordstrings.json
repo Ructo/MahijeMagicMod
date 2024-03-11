@@ -8,6 +8,13 @@
     "DESCRIPTION": "TODO: Make your own epic keywords"
   },
   {
+    "PROPER_NAME": "Angry",
+    "NAMES": [
+      "angry"
+    ],
+    "DESCRIPTION": "Attacks, Curses, and Statuses"
+  },
+  {
   "PROPER_NAME": "Flip",
   "NAMES": [
   "flip"

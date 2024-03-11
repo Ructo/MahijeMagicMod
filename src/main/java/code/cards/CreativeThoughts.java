@@ -1,5 +1,8 @@
 package code.cards;
 
+import basemod.cardmods.EtherealMod;
+import basemod.cardmods.ExhaustMod;
+import basemod.helpers.CardModifierManager;
 import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import code.actions.FlipCardsAction;
 import code.cards.abstractCards.AbstractFlipCard;
@@ -41,15 +44,21 @@ public class CreativeThoughts extends AbstractFlipCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(p, 1));
-        for (int i = 0; i < magicNumber; i++) {
-            ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
-            Collections.shuffle(eligibleCardsList); // Shuffle the list of eligible cards
-            AbstractCard randomCard = eligibleCardsList.get(0); // Select the first card from the shuffled list
-            addToBot(new MakeTempCardInHandAction(randomCard));
+        addToBot(new DrawCardAction(p, 1)); // Draw 1 card
+
+        ArrayList<AbstractCard> eligibleCardsList = getCardsMatchingPredicate(c -> c.cost == 0, true);
+        Collections.shuffle(eligibleCardsList); // Shuffle the list of eligible cards
+
+        for (int i = 0; i < Math.min(eligibleCardsList.size(), magicNumber); i++) {
+            AbstractCard modifiedCard = eligibleCardsList.get(i).makeStatEquivalentCopy(); // Create a copy of the card
+
+            // Add Ethereal and Exhaust modifiers to the modifiedCard
+            CardModifierManager.addModifier(modifiedCard, new EtherealMod());
+            CardModifierManager.addModifier(modifiedCard, new ExhaustMod());
+
+            addToBot(new MakeTempCardInHandAction(modifiedCard, 1, true));
         }
     }
-
     @Override
     public void upgrade() {
         if (!this.upgraded) {

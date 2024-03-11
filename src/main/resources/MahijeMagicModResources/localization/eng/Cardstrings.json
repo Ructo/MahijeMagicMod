@@ -13,6 +13,11 @@
     "NAME": "Alert",
     "DESCRIPTION": "Gain !B! Block twice. NL Exhaustive !stslib:ex!"
   },
+  "${ModID}:AnxiousMind": {
+    "NAME": "Anxious Mind",
+    "DESCRIPTION": "${ModID}:Flip NL Draw 1 card NL If you have played a card this turn, discard 1 random card as well.  NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card NL If you have played a card this turn, discard 1 random card as well."
+  },
   "${ModID}:ChargingUp": {
     "NAME": "Charging Up",
     "DESCRIPTION": "Gain !B! Block and 3 Energy. NL Add Ready Weapons to hand. NL Apply ${ModID}:Charged",
@@ -25,8 +30,8 @@
   },
   "${ModID}:CreativeMind": {
     "NAME": "Creative Mind",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Exhaust and Ethereal. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Exhaust and Ethereal.",
+    "DESCRIPTION": "${ModID}:Flip NL Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Exhaust and Ethereal. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Exhaust and Ethereal.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card to add into your hand with Exhaust and Ethereal."
     ]
@@ -39,6 +44,11 @@
   "${ModID}:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block. NL Exhaustive !stslib:ex!"
+  },
+  "${ModID}:Dream": {
+    "NAME": "Dream",
+    "DESCRIPTION": "${ModID}:Flip NL Double your Strength and Dexterity. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Double your Strength and Dexterity. NL Exhaust"
   },
   "${ModID}:DrawAndShiv": {
     "NAME": "Draw and Shiv",
@@ -203,6 +213,11 @@
     "DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaust",
     "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Vulnerable to all enemies. NL Exhaust"
   },
+  "${ModID}:Plan": {
+    "NAME": "Plan",
+    "DESCRIPTION": "${ModID}:Flip NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Draw !M! card."
+  },
   "${ModID}:Pong": {
     "NAME": "Pong",
     "DESCRIPTION": "${ModID}:Flip NL Draw 1 card per enemy NL Apply 1 Weak to all enemies. NL Exhaust",
@@ -215,8 +230,8 @@
   },
   "${ModID}:RefractedShield": {
     "NAME": "Refracted Shield",
-    "DESCRIPTION": "Every ${ModID}:Lasers card played maintains Blur and adds 1 Thorns.",
-    "UPGRADE_DESCRIPTION": "Every ${ModID}:Lasers card played maintains Blur and adds 1 Thorns.",
+    "DESCRIPTION": "${ModID}:Flip NL Every ${ModID}:Lasers card played maintains Blur and adds 1 Thorns.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Every ${ModID}:Lasers card played maintains Blur and adds 1 Thorns.",
     "EXTENDED_DESCRIPTION": [
       "Every Lasers card played maintains Blur and adds ",
       " damage."
@@ -234,8 +249,8 @@
   },
   "${ModID}:Refraction": {
     "NAME": "Refraction",
-    "DESCRIPTION": "Deal !M! to a random target when a ${ModID}:Lasers card is played.",
-    "UPGRADE_DESCRIPTION": "Deal !M! to a random target when a ${ModID}:Lasers card is played.",
+    "DESCRIPTION": "${ModID}:Flip NL Deal !M! to a random target when a ${ModID}:Lasers card is played.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Deal !M! to a random target when a ${ModID}:Lasers card is played.",
     "EXTENDED_DESCRIPTION": [
       "Every Lasers card played causes the enemy to take ",
      " damage."
@@ -255,6 +270,11 @@
     "NAME": "Rerouting:Block",
     "DESCRIPTION": "${ModID}:Flip NL Gain !B! block for each enemy in combat. NL ${ModID}:Discard 1 attack card at random.",
     "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Gain !B! block for each enemy in combat. NL ${ModID}:Discard 1 attack card at random."
+  },
+  "${ModID}:RestorePoint": {
+    "NAME": "Restore Point",
+    "DESCRIPTION": "Retrieve 1 random card from Exhaust Pile. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Retrieve 1 random card from Exhaust Pile. NL Exhaust"
   },
   "${ModID}:Strike": {
     "NAME": "Strike",
@@ -285,8 +305,8 @@
   },
   "${ModID}:TemperancePatient": {
     "NAME": "Temperance:Patient",
-    "DESCRIPTION": "${ModID}:Flip NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Exhaust all attacks and curses in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted."
+    "DESCRIPTION": "${ModID}:Flip NL Exhaust all ${ModID}:angry cards in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "${ModID}:Flip NL Exhaust all ${ModID}:angry cards in hand. NL Apply Dexterity and Block Thrice for !B! per Exhausted."
   },
   "${ModID}:TemperanceSpiteful": {
     "NAME": "Temperance:Spiteful",

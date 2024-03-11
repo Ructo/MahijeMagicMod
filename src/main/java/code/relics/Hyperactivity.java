@@ -7,7 +7,10 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 
 import java.util.Random;
 
@@ -15,10 +18,11 @@ import static code.ModFile.makeID;
 
 public class Hyperactivity extends AbstractEasyRelic {
     public static final String ID = makeID("Hyperactivity");
-
+    private static final RelicStrings relicStrings = CardCrawlGame.languagePack.getRelicStrings(ID);
     public Hyperactivity() {
         super(ID, RelicTier.STARTER, LandingSound.FLAT, CharacterFile.Enums.TEAL_COLOR);
         this.counter = 0;
+
     }
 
     @Override

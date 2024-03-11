@@ -30,39 +30,32 @@ public class SupertasterPower extends AbstractEasyPower implements BetterOnApply
     public boolean betterOnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (target != owner) return true;
 
-        boolean isBuff = power.type == PowerType.BUFF || power instanceof StrengthPower || power instanceof DexterityPower;
+        boolean isBuff = power.type == PowerType.BUFF;
         boolean isDebuff = power.type == PowerType.DEBUFF;
-        boolean shouldModify = (isBuff && !hasModifiedBuffThisTurn) || (isDebuff && !hasModifiedDebuffThisTurn);
 
-        if (shouldModify) {
-            if (isBuff) {
-                hasModifiedBuffThisTurn = true;
-            } else if (isDebuff) {
-                hasModifiedDebuffThisTurn = true;
-            }
-
-            // Apply an extra stack for the buff or worsen the debuff.
-            if (power instanceof StrengthPower || power instanceof DexterityPower) {
-                // Special handling for Strength and Dexterity to allow negative adjustments
-                if (power.amount < 0) {
-                    return true; // Let the debuff apply normally then modify it
-                }
-            }
-
-            power.amount += (isDebuff && power.amount < 0) ? -amount : amount; // Worsen debuffs or enhance buffs
+        if (isBuff && !hasModifiedBuffThisTurn) {
+            hasModifiedBuffThisTurn = true;
+            power.amount += amount;
             power.updateDescription();
+            return true;
         }
 
+        if (isDebuff && !hasModifiedDebuffThisTurn) {
+            hasModifiedDebuffThisTurn = true;
+            if (power.amount < 0) {
+                power.amount -= amount;
+            }
+            power.updateDescription();
+            return true;
+        }
         return true;
     }
 
     @Override
     public void updateDescription() {
-        if (hasModifiedBuffThisTurn && hasModifiedDebuffThisTurn) {
-            description = DESCRIPTIONS[1]; // Assuming DESCRIPTIONS[1] explains both buffs and debuffs have been modified.
-        } else {
-            description = DESCRIPTIONS[0];
-        }
+        int buffIncreaseAmount = hasModifiedBuffThisTurn ? 0 : amount; // If buff was modified, no more increase this turn
+        int debuffIncreaseAmount = hasModifiedDebuffThisTurn ? 0 : amount; // If debuff was modified, no more increase this turn
+        description = DESCRIPTIONS[0] + buffIncreaseAmount + DESCRIPTIONS[1] + debuffIncreaseAmount + ".";
     }
 
 }

@@ -5,6 +5,7 @@ import code.actions.FlipCardsAction;
 import code.cards.abstractCards.AbstractFlipCard;
 import code.powers.StrFixation;
 import code.powers.DexFixation;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -42,7 +43,7 @@ public class HyperFocusDexterity extends AbstractFlipCard {
         }
 
         // Apply DexFixation
-        applyToSelf(new DexFixation(p, magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexFixation(p, this.magicNumber), this.magicNumber));
     }
 
     @Override

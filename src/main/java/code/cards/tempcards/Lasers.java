@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+
 import static code.ModFile.makeID;
 
 @NoPools
@@ -34,45 +36,31 @@ public class Lasers extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
-            AbstractMonster randomTarget = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+            AbstractMonster randomTarget = AbstractDungeon.getMonsters().getRandomMonster(null,true, AbstractDungeon.cardRandomRng);
             addToBot(new DamageAction(randomTarget, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         }
     }
 
     @Override
+    public void applyPowers() {
+        int originalBaseDamage = this.baseDamage;
+        this.baseDamage += getDexterityBonus(AbstractDungeon.player) - getStrengthAmount(AbstractDungeon.player);
+
+        super.applyPowers();
+
+        this.baseDamage = originalBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
+
+    @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo); // Apply all standard damage calculations, including Strength.
+        int originalBaseDamage = this.baseDamage;
+        this.baseDamage += getDexterityBonus(AbstractDungeon.player) - getStrengthAmount(AbstractDungeon.player);
 
-        int dexterityBonus = getDexterityBonus(AbstractDungeon.player);
-        int strengthAmount = getStrengthAmount(AbstractDungeon.player);
+        super.calculateCardDamage(mo);
 
-        // Adjust damage based on Dexterity, then negate the Strength effect.
-        this.damage += dexterityBonus;
-        this.damage -= strengthAmount;
-
-        // Ensure damage does not drop below baseDamage.
-        this.damage = Math.max(this.damage, baseDamage);
-
-        updateDescription(dexterityBonus);
-    }
-
-    private void updateDescription(int dexterityBonus) {
-        // Assumes the cardStrings.DESCRIPTION already contains placeholders for dynamic values
-        this.rawDescription = cardStrings.DESCRIPTION.replace("!D!", String.valueOf(baseDamage + dexterityBonus));
-        initializeDescription();
-    }
-
-    public AbstractCard makeCopy() {
-        return new Lasers();
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1); // Increases the number of hits
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            initializeDescription();
-        }
+        this.baseDamage = originalBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     private int getDexterityBonus(AbstractPlayer player) {
@@ -81,7 +69,22 @@ public class Lasers extends AbstractEasyCard {
     }
 
     private int getStrengthAmount(AbstractPlayer player) {
-        AbstractPower strengthPower = player.getPower("Strength");
+        AbstractPower strengthPower = player.getPower(StrengthPower.POWER_ID);
         return strengthPower != null ? strengthPower.amount : 0;
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        return new Lasers();
+    }
+
+    @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            upgradeMagicNumber(1); // Increase the number of hits
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
+        }
     }
 }

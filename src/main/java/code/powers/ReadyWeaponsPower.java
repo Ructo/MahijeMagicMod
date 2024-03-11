@@ -1,10 +1,12 @@
 package code.powers;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import static code.ModFile.makeID;
@@ -24,7 +26,6 @@ public class ReadyWeaponsPower extends AbstractEasyPower {
     public void updateDescription() {
         this.description = "Weapons Ready, gain 6 Void at the end of next turn. Use Hyper Electro Beam to negate.";
     }
-
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {

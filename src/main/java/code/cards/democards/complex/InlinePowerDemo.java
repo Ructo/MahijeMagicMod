@@ -1,5 +1,7 @@
 package code.cards.democards.complex;
 
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,7 +14,8 @@ import code.powers.LambdaPower;
 import static code.ModFile.makeID;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
-
+@NoPools
+@NoCompendium
 public class InlinePowerDemo extends AbstractEasyCard {
     public final static String ID = makeID(InlinePowerDemo.class.getSimpleName());
     // intellij stuff power, self, uncommon

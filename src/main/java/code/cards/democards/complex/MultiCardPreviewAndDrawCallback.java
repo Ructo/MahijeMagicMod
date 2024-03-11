@@ -1,6 +1,8 @@
 package code.cards.democards.complex;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
+import basemod.patches.com.megacrit.cardcrawl.screens.compendium.CardLibraryScreen.NoCompendium;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +16,8 @@ import static code.ModFile.makeID;
 import static code.util.Wiz.actionify;
 import static code.util.Wiz.atb;
 import static code.util.Wiz.shuffleIn;
-
+@NoPools
+@NoCompendium
 public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
     public final static String ID = makeID(MultiCardPreviewAndDrawCallback.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,

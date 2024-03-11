@@ -24,7 +24,7 @@ public class HyperKick extends AbstractEasyCard {
 
     public HyperKick() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        baseDamage = 5;
         initializeDescription();
     }
 

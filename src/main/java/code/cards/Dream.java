@@ -1,57 +1,61 @@
 package code.cards;
+
 import code.actions.FlipCardsAction;
 import code.cards.abstractCards.AbstractFlipCard;
-import code.powers.StrFixation;
-import code.powers.DexFixation;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import static code.ModFile.makeID;
-import static code.util.Wiz.applyToSelf;
-import static code.util.Wiz.atb;
-import static code.CharacterFile.Enums.TEAL_COLOR;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class HyperFocusStrength extends AbstractFlipCard {
-    public final static String ID = makeID("HyperFocusStrength");
+import static code.CharacterFile.Enums.TEAL_COLOR;
+import static code.ModFile.makeID;
+
+public class Dream extends AbstractFlipCard {
+    public final static String ID = makeID("Dream");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public HyperFocusStrength() {
-        this(new HyperFocusDexterity(null));
+    public Dream() {
+        this(new Plan(null));
     }
-    public HyperFocusStrength(AbstractFlipCard linkedCard) {
-        super(ID, 1, CardType.POWER, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
-        magicNumber = baseMagicNumber = 3;
+
+    public Dream(AbstractFlipCard linkedCard) {
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, TEAL_COLOR);
+        baseMagicNumber = magicNumber = 2;
+        this.exhaust = true;
+        initializeDescription();
         if (linkedCard == null) {
-            this.setLinkedCard(new HyperFocusDexterity(this));
+            this.setLinkedCard(new Plan(this));
         } else {
             this.setLinkedCard(linkedCard);
         }
     }
-
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Check if the player already has StrFixation or DexFixation and remove them
-        if (p.hasPower(StrFixation.POWER_ID)) {
-            atb(new RemoveSpecificPowerAction(p, p, StrFixation.POWER_ID));
+        if (p.hasPower(StrengthPower.POWER_ID)) {
+            int strAmt = p.getPower(StrengthPower.POWER_ID).amount;
+            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, strAmt), strAmt));
         }
-        if (p.hasPower(DexFixation.POWER_ID)) {
-            atb(new RemoveSpecificPowerAction(p, p, DexFixation.POWER_ID));
+        if (p.hasPower(DexterityPower.POWER_ID)) {
+            int dexAmt = p.getPower(DexterityPower.POWER_ID).amount;
+            addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, dexAmt), dexAmt));
         }
-
-        // Apply StrFixation
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrFixation(p, this.magicNumber), this.magicNumber));
     }
+
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeBaseCost(0);
+            upgradeBaseCost(1);
             this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 
@@ -62,8 +66,9 @@ public class HyperFocusStrength extends AbstractFlipCard {
             AbstractDungeon.actionManager.addToBottom(new FlipCardsAction(this, newCard));
         }
     }
+
     @Override
     public AbstractCard makeCopy() {
-        return new HyperFocusStrength(null);
+        return new Dream(null);
     }
 }

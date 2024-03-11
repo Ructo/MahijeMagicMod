@@ -3,8 +3,7 @@ package code;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
-import code.cards.Concentration;
-import code.cards.CreativeMind;
+import code.cards.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -20,8 +19,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import code.cards.Defend;
-import code.cards.Strike;
 import code.relics.Hyperactivity;
 
 import java.util.ArrayList;
@@ -68,7 +65,7 @@ public class CharacterFile extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(CreativeMind.ID);
-        retVal.add(Concentration.ID);
+        retVal.add(RestorePoint.ID);
         return retVal;
     }
 

@@ -1,9 +1,9 @@
 {
   "${ModID}:Hyperactivity": {
     "NAME": "Hyperactivity",
-    "FLAVOR": "Every 4 cards exhausted, gain 1 energy. Gain 3 Struggles when out of cards to play",
+    "FLAVOR": "Gain 1 energy for every 4 cards #yExhausted.",
     "DESCRIPTIONS": [
-      "Every 4 cards exhausted, gain 1 energy. Gain 3 Struggles when out of cards to play"
+      "Gain 1 energy for every 4 cards #yExhausted."
     ]
   },
   "${ModID}:StruggleBus": {
