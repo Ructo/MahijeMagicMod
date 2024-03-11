@@ -9,7 +9,7 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 
-
+//Patch for making text easier to read on character select screen.
 @SpirePatch(
         clz = CharacterOption.class,
         method = "renderRelics"
