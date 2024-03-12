@@ -1,4 +1,4 @@
-package com.megacrit.cardcrawl.powers;
+package code.powers;
 
 import code.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.ModFile.makeID;
 
