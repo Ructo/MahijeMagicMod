@@ -3,6 +3,7 @@ package code.cards;
 import basemod.cardmods.EtherealMod;
 import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
+import basemod.patches.com.megacrit.cardcrawl.dungeons.AbstractDungeon.NoPools;
 import code.actions.FlipCardsAction;
 import code.cards.abstractCards.AbstractFlipCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
@@ -20,7 +21,7 @@ import java.util.Collections;
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
-
+@NoPools
 public class CreativeMind extends AbstractFlipCard {
 
     public final static String ID = makeID("CreativeMind");
@@ -57,6 +58,7 @@ public class CreativeMind extends AbstractFlipCard {
             if (!this.upgraded) {
                 this.upgradeName();
                 this.exhaust = false;
+                this.cardsToPreview.upgrade();
                 this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
                 this.initializeDescription();
             }

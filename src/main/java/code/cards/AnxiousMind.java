@@ -25,7 +25,7 @@ import java.util.Collections;
 import static code.CharacterFile.Enums.TEAL_COLOR;
 import static code.ModFile.makeID;
 import static code.util.Wiz.*;
-@NoPools
+
 public class AnxiousMind extends AbstractFlipCard {
 
     public final static String ID = makeID("AnxiousMind");
@@ -59,6 +59,7 @@ public class AnxiousMind extends AbstractFlipCard {
                 if (!this.upgraded) {
                     this.upgradeName();
                     this.exhaust = false;
+                    this.cardsToPreview.upgrade();
                     this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
                     this.initializeDescription();
                 }

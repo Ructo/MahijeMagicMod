@@ -64,7 +64,7 @@ public class CharacterFile extends CustomPlayer {
         for (int i = 0; i < 5; i++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(CreativeMind.ID);
+        retVal.add(AnxiousMind.ID);
         retVal.add(RestorePoint.ID);
         return retVal;
     }
